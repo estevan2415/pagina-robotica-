@@ -1,0 +1,2603 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    
+    <!-- ====== SEO BÁSICO ====== -->
+    <title>Colegio Bethel - Sistema Teleinformático Inteligente</title>
+    <meta name="description" content="Colegio Bethel - Plataforma educativa con sistema teleinformático para gestión académica, docentes, noticias y eventos escolares en Colombia.">
+    <meta name="keywords" content="Colegio Bethel, sistema teleinformático, educación, colegio en Colombia, gestión académica, docentes, estudiantes">
+    <meta name="author" content="Colegio Bethel">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://tudominio.com/">
+    
+    <!-- ====== OPEN GRAPH ====== -->
+    <meta property="og:title" content="Colegio Bethel - Sistema Teleinformático Inteligente">
+    <meta property="og:description" content="Plataforma educativa integral para la gestión académica del Colegio Bethel.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tudominio.com/">
+    <meta property="og:locale" content="es_CO">
+    <meta property="og:image" content="https://tudominio.com/og-image.jpg">
+    
+    <!-- ====== TWITTER CARDS ====== -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Colegio Bethel - Sistema Teleinformático">
+    <meta name="twitter:description" content="Plataforma educativa integral para gestión académica.">
+    
+    <!-- ====== DATOS ESTRUCTURADOS ====== -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "EducationalOrganization",
+        "name": "Colegio Bethel",
+        "description": "Institución educativa con sistema teleinformático inteligente para la gestión académica.",
+        "url": "https://tudominio.com",
+        "telephone": "+573001234567",
+        "email": "contacto@colegiobethel.edu.co",
+        "address": { "@type": "PostalAddress", "addressCountry": "CO" }
+    }
+    </script>
+    
+    <!-- ====== FAVICON ====== -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏫</text></svg>">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏫</text></svg>">
+    
+    <!-- ====== FUENTES Y ESTILOS ====== -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #1a365d;
+            --primary-light: #2b6cb0;
+            --primary-dark: #0a1628;
+            --secondary: #e2a609;
+            --secondary-light: #f6c90e;
+            --accent: #48bb78;
+            --danger: #fc8181;
+            --gray-50: #f7fafc;
+            --gray-100: #edf2f7;
+            --gray-200: #e2e8f0;
+            --gray-300: #cbd5e0;
+            --gray-400: #a0aec0;
+            --gray-500: #718096;
+            --gray-600: #4a5568;
+            --gray-700: #2d3748;
+            --gray-800: #1a202c;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+            --shadow-md: 0 4px 20px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 50px rgba(0,0,0,0.15);
+            --shadow-xl: 0 20px 60px rgba(0,0,0,0.2);
+            --radius: 12px;
+            --radius-lg: 24px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--gray-50);
+            color: var(--gray-700);
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--gray-100); }
+        ::-webkit-scrollbar-thumb { background: var(--primary-light); border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--primary); }
+
+        .toast-container {
+            position: fixed; top: 24px; right: 24px; z-index: 99999;
+            display: flex; flex-direction: column; gap: 12px;
+            max-width: 420px; width: 100%; pointer-events: none;
+        }
+        .toast {
+            background: white; padding: 18px 24px; border-radius: var(--radius);
+            box-shadow: var(--shadow-xl); border-left: 5px solid var(--accent);
+            animation: slideInRight 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            pointer-events: auto; display: flex; align-items: flex-start; gap: 14px;
+            transform: translateX(0); transition: transform 0.4s ease;
+            backdrop-filter: blur(10px);
+        }
+        .toast.hide { transform: translateX(120%); }
+        .toast-success { border-left-color: var(--accent); }
+        .toast-error { border-left-color: var(--danger); }
+        .toast-warning { border-left-color: var(--secondary); }
+        .toast-info { border-left-color: var(--primary-light); }
+        .toast-icon { font-size: 1.5rem; flex-shrink: 0; margin-top: 2px; }
+        .toast-content { flex: 1; }
+        .toast-title { font-weight: 700; font-size: 0.95rem; color: var(--gray-800); }
+        .toast-message { font-size: 0.9rem; color: var(--gray-600); margin-top: 2px; }
+        .toast-close {
+            background: none; border: none; font-size: 1.2rem; cursor: pointer;
+            color: var(--gray-400); padding: 0 4px; transition: var(--transition);
+        }
+        .toast-close:hover { color: var(--gray-600); }
+        @keyframes slideInRight {
+            from { transform: translateX(120%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        .login-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(135deg, rgba(26,54,93,0.92), rgba(11,22,45,0.96));
+            backdrop-filter: blur(12px); display: flex; justify-content: center;
+            align-items: center; z-index: 9999; padding: 20px;
+        }
+        .login-box {
+            background: rgba(255,255,255,0.98); backdrop-filter: blur(20px);
+            padding: 50px 45px; border-radius: var(--radius-lg); width: 440px;
+            max-width: 100%; box-shadow: var(--shadow-xl);
+            animation: slideUp 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        @keyframes slideUp {
+            from { transform: translateY(40px) scale(0.98); opacity: 0; }
+            to { transform: translateY(0) scale(1); opacity: 1; }
+        }
+        .login-box .logo-icon { text-align: center; font-size: 4rem; margin-bottom: 6px; display: block; }
+        .login-box .logo-text {
+            text-align: center; font-size: 1.8rem; font-weight: 800;
+            color: var(--primary); letter-spacing: -0.5px; margin-bottom: 2px;
+        }
+        .login-box .logo-text span { color: var(--secondary); }
+        .login-box .subtitulo {
+            text-align: center; color: var(--gray-500); margin-bottom: 28px;
+            font-size: 0.95rem; font-weight: 400;
+        }
+        .login-box .form-group { margin-bottom: 18px; }
+        .login-box label {
+            display: block; font-weight: 600; font-size: 0.85rem;
+            color: var(--gray-700); margin-bottom: 5px;
+        }
+        .login-box label i { margin-right: 6px; color: var(--primary-light); }
+        .login-box input {
+            width: 100%; padding: 14px 16px; border: 2px solid var(--gray-200);
+            border-radius: var(--radius); font-size: 0.95rem;
+            transition: var(--transition); background: var(--gray-50);
+            font-family: 'Inter', sans-serif;
+        }
+        .login-box input:focus {
+            border-color: var(--primary-light); outline: none;
+            box-shadow: 0 0 0 4px rgba(43,108,176,0.12); background: white;
+        }
+        .login-box .btn-login {
+            width: 100%; padding: 16px;
+            background: linear-gradient(135deg, var(--primary-light), var(--primary));
+            color: white; border: none; border-radius: var(--radius);
+            font-size: 1.05rem; cursor: pointer; font-weight: 700;
+            transition: var(--transition); margin-top: 6px;
+            display: flex; align-items: center; justify-content: center; gap: 10px;
+        }
+        .login-box .btn-login:hover {
+            transform: translateY(-2px); box-shadow: 0 8px 30px rgba(43,108,176,0.4);
+        }
+        .login-box .btn-login:active { transform: translateY(0); }
+        .login-box .btn-invitado {
+            width: 100%; padding: 14px; background: var(--gray-100);
+            color: var(--gray-600); border: 2px solid var(--gray-200);
+            border-radius: var(--radius); font-size: 0.95rem; cursor: pointer;
+            font-weight: 600; transition: var(--transition); margin-top: 10px;
+            display: flex; align-items: center; justify-content: center; gap: 8px;
+        }
+        .login-box .btn-invitado:hover {
+            background: var(--gray-200); border-color: var(--gray-300);
+            transform: translateY(-2px);
+        }
+        .login-box .divider {
+            display: flex; align-items: center; gap: 15px; margin: 22px 0;
+            color: var(--gray-400); font-size: 0.85rem;
+        }
+        .login-box .divider::before,
+        .login-box .divider::after {
+            content: ''; flex: 1; height: 1px; background: var(--gray-200);
+        }
+        .login-box .info {
+            text-align: center; margin-top: 22px; font-size: 0.82rem;
+            color: var(--gray-500); border-top: 1px solid var(--gray-200); padding-top: 20px;
+        }
+        .login-box .info strong { color: var(--primary); }
+        .login-box .info .badge-test {
+            display: inline-block; background: var(--accent); color: white;
+            padding: 2px 10px; border-radius: 20px; font-size: 0.7rem;
+            font-weight: 600; margin: 0 2px;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary), var(--primary-light));
+            color: white; text-align: center; padding: 80px 20px 70px;
+            position: relative; overflow: hidden;
+        }
+        header::before {
+            content: ''; position: absolute; top: -60%; right: -10%;
+            width: 600px; height: 600px;
+            background: radial-gradient(circle, rgba(255,255,255,0.06) 0%, transparent 70%);
+            border-radius: 50%; pointer-events: none;
+        }
+        header::after {
+            content: ''; position: absolute; bottom: -40%; left: -10%;
+            width: 500px; height: 500px;
+            background: radial-gradient(circle, rgba(255,215,0,0.05) 0%, transparent 70%);
+            border-radius: 50%; pointer-events: none;
+        }
+        header .header-content { position: relative; z-index: 1; max-width: 800px; margin: 0 auto; }
+        header .header-badge {
+            display: inline-block; background: rgba(255,215,0,0.15);
+            color: var(--secondary-light); padding: 6px 20px; border-radius: 50px;
+            font-size: 0.8rem; font-weight: 600; letter-spacing: 1px;
+            text-transform: uppercase; margin-bottom: 16px;
+            border: 1px solid rgba(255,215,0,0.2);
+        }
+        header h1 {
+            font-size: 3.8rem; font-weight: 800; letter-spacing: -1px;
+            position: relative; line-height: 1.1;
+        }
+        header h1 span { color: var(--secondary-light); }
+        header p {
+            font-size: 1.25rem; opacity: 0.9; margin-top: 12px;
+            font-weight: 300; max-width: 600px; margin-left: auto; margin-right: auto;
+        }
+        header .header-stats {
+            display: flex; justify-content: center; gap: 50px;
+            margin-top: 35px; flex-wrap: wrap;
+        }
+        header .header-stats .stat { text-align: center; }
+        header .header-stats .stat .number {
+            font-size: 2rem; font-weight: 800; color: var(--secondary-light);
+        }
+        header .header-stats .stat .label { font-size: 0.85rem; opacity: 0.7; }
+
+        nav {
+            background: rgba(255,255,255,0.98); backdrop-filter: blur(10px);
+            display: flex; justify-content: center; flex-wrap: wrap;
+            padding: 0 20px; position: sticky; top: 0; z-index: 1000;
+            border-bottom: 1px solid var(--gray-200); box-shadow: var(--shadow-sm);
+        }
+        nav a {
+            color: var(--gray-600); text-decoration: none; padding: 18px 22px;
+            font-weight: 500; font-size: 0.9rem; transition: var(--transition);
+            border-bottom: 3px solid transparent; display: inline-flex;
+            align-items: center; gap: 6px; position: relative;
+        }
+        nav a i { font-size: 0.9rem; }
+        nav a:hover, nav a:focus {
+            color: var(--primary); border-bottom-color: var(--primary-light);
+        }
+        nav a.btn-cerrar-sesion { color: var(--danger); border-bottom-color: transparent; }
+        nav a.btn-cerrar-sesion:hover { color: #e53e3e; border-bottom-color: var(--danger); }
+
+        section { max-width: 1200px; margin: 0 auto; padding: 60px 20px; }
+        section:not(:last-child) { border-bottom: 1px solid var(--gray-200); }
+        .titulo {
+            text-align: center; color: var(--primary); font-size: 2.2rem;
+            font-weight: 700; margin-bottom: 35px; position: relative;
+            letter-spacing: -0.5px;
+        }
+        .titulo::after {
+            content: ''; display: block; width: 50px; height: 4px;
+            background: linear-gradient(90deg, var(--secondary), var(--secondary-light));
+            margin: 12px auto 0; border-radius: 4px;
+        }
+        .titulo i { color: var(--secondary); margin-right: 8px; }
+
+        .tarjetas {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+        }
+        .tarjeta {
+            background: white; padding: 32px 28px; border-radius: var(--radius);
+            box-shadow: var(--shadow-sm); transition: var(--transition);
+            border: 1px solid var(--gray-100); position: relative; overflow: hidden;
+        }
+        .tarjeta::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-light), var(--secondary));
+            opacity: 0; transition: var(--transition);
+        }
+        .tarjeta:hover::before { opacity: 1; }
+        .tarjeta:hover {
+            transform: translateY(-6px); box-shadow: var(--shadow-md);
+            border-color: var(--gray-200);
+        }
+        .tarjeta .icon { font-size: 2.5rem; margin-bottom: 12px; display: block; }
+        .tarjeta h3 { color: var(--primary); margin-bottom: 8px; font-size: 1.2rem; font-weight: 700; }
+        .tarjeta p { color: var(--gray-500); font-size: 0.95rem; }
+        .tarjeta ul { margin-top: 12px; list-style: none; padding: 0; }
+        .tarjeta ul li {
+            padding: 6px 0; border-bottom: 1px solid var(--gray-100);
+            font-size: 0.9rem; color: var(--gray-600);
+        }
+        .tarjeta ul li:last-child { border-bottom: none; }
+
+        .estadisticas {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 24px;
+        }
+        .numero {
+            background: white; text-align: center; padding: 32px 20px;
+            border-radius: var(--radius); box-shadow: var(--shadow-sm);
+            border: 1px solid var(--gray-100); transition: var(--transition);
+        }
+        .numero:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+        .numero .icon {
+            font-size: 2rem; color: var(--primary-light);
+            margin-bottom: 6px; display: block;
+        }
+        .numero h2 { font-size: 2.8rem; font-weight: 800; color: var(--primary); line-height: 1; }
+        .numero p { color: var(--gray-500); font-weight: 500; margin-top: 4px; }
+
+        .table-wrapper {
+            overflow-x: auto; border-radius: var(--radius);
+            box-shadow: var(--shadow-sm); border: 1px solid var(--gray-200);
+        }
+        table {
+            width: 100%; border-collapse: collapse; background: white; font-size: 0.9rem;
+        }
+        th, td {
+            padding: 14px 18px; text-align: left;
+            border-bottom: 1px solid var(--gray-100);
+        }
+        th {
+            background: var(--gray-50); color: var(--gray-700); font-weight: 600;
+            font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px;
+            position: sticky; top: 0;
+        }
+        tr:hover td { background: var(--gray-50); }
+
+        .docente-grid {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 25px; margin-top: 25px;
+        }
+        .docente-card {
+            background: white; border-radius: var(--radius);
+            padding: 28px 20px 24px; box-shadow: var(--shadow-sm);
+            text-align: center; transition: var(--transition);
+            border: 1px solid var(--gray-100);
+        }
+        .docente-card:hover {
+            transform: translateY(-5px); box-shadow: var(--shadow-md);
+            border-color: var(--gray-200);
+        }
+        .docente-card .foto {
+            width: 110px; height: 110px; border-radius: 50%; object-fit: cover;
+            border: 4px solid var(--primary-light); margin: 0 auto 15px;
+            display: block; background: var(--gray-100);
+        }
+        .docente-card h4 { color: var(--primary); font-size: 1.15rem; font-weight: 700; }
+        .docente-card p { color: var(--gray-500); margin: 4px 0; font-size: 0.9rem; }
+        .docente-card .badge-asignatura {
+            display: inline-block; background: var(--gray-100); color: var(--gray-600);
+            padding: 2px 14px; border-radius: 20px; font-size: 0.8rem;
+            font-weight: 500; margin-top: 4px;
+        }
+
+        .docente-item {
+            background: white; padding: 16px 20px; margin-top: 10px;
+            border-radius: var(--radius); display: flex; align-items: center;
+            gap: 16px; flex-wrap: wrap; box-shadow: var(--shadow-sm);
+            transition: var(--transition); border: 1px solid var(--gray-100);
+        }
+        .docente-item:hover { box-shadow: var(--shadow-md); border-color: var(--gray-200); }
+        .docente-foto {
+            width: 56px; height: 56px; border-radius: 50%; object-fit: cover;
+            border: 3px solid var(--primary-light); flex-shrink: 0;
+            background: var(--gray-100); display: flex; align-items: center;
+            justify-content: center; font-size: 1.6rem;
+        }
+        .docente-info { flex: 1; min-width: 150px; }
+        .docente-info strong { font-size: 1rem; color: var(--primary); font-weight: 700; }
+        .docente-info .detail { font-size: 0.85rem; color: var(--gray-500); }
+        .docente-acciones { display: flex; flex-wrap: wrap; gap: 6px; }
+
+        .noticia {
+            background: white; padding: 24px 28px; border-radius: var(--radius);
+            box-shadow: var(--shadow-sm); margin-bottom: 16px;
+            border: 1px solid var(--gray-100); transition: var(--transition);
+        }
+        .noticia:hover { box-shadow: var(--shadow-md); border-color: var(--gray-200); }
+        .noticia .noticia-header {
+            display: flex; justify-content: space-between; align-items: center;
+            flex-wrap: wrap; margin-bottom: 6px;
+        }
+        .noticia h3 { color: var(--primary); font-weight: 700; font-size: 1.15rem; }
+        .noticia .fecha { color: var(--gray-400); font-size: 0.85rem; }
+        .noticia p { color: var(--gray-600); margin-top: 4px; }
+
+        .panel {
+            background: white; padding: 28px; border-radius: var(--radius);
+            box-shadow: var(--shadow-sm); border: 1px solid var(--gray-100);
+        }
+        .panel h3 {
+            color: var(--primary); font-weight: 700; font-size: 1.1rem;
+            margin-bottom: 16px; display: flex; align-items: center; gap: 8px;
+        }
+        .panel h3 i { color: var(--secondary); }
+        .panel input, .panel textarea, .panel select {
+            width: 100%; padding: 12px 16px; margin: 4px 0 14px;
+            border: 2px solid var(--gray-200); border-radius: var(--radius);
+            font-size: 0.9rem; transition: var(--transition);
+            font-family: 'Inter', sans-serif; background: var(--gray-50);
+        }
+        .panel input:focus, .panel textarea:focus, .panel select:focus {
+            border-color: var(--primary-light); outline: none;
+            box-shadow: 0 0 0 4px rgba(43,108,176,0.08); background: white;
+        }
+        .panel textarea { min-height: 100px; resize: vertical; }
+
+        .item {
+            background: var(--gray-50); padding: 16px 18px; margin-top: 10px;
+            border-radius: var(--radius); transition: var(--transition);
+            border-left: 4px solid var(--primary-light);
+        }
+        .item:hover { background: var(--gray-100); }
+        .item h4 { color: var(--primary); margin: 4px 0; font-weight: 600; }
+        .item small { color: var(--gray-400); font-size: 0.8rem; }
+
+        button {
+            background: var(--primary-light); color: white; border: none;
+            padding: 10px 22px; border-radius: var(--radius); cursor: pointer;
+            font-weight: 600; font-size: 0.9rem; transition: var(--transition);
+            display: inline-flex; align-items: center; gap: 8px;
+            font-family: 'Inter', sans-serif;
+        }
+        button:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+        button:active { transform: translateY(0); }
+        .btn-danger { background: var(--danger); }
+        .btn-danger:hover { background: #e53e3e; }
+        .btn-warning { background: var(--secondary); color: var(--gray-800); }
+        .btn-warning:hover { background: var(--secondary-light); }
+        .btn-success { background: var(--accent); }
+        .btn-success:hover { background: #38a169; }
+        .btn-outline {
+            background: transparent; color: var(--gray-600);
+            border: 2px solid var(--gray-200);
+        }
+        .btn-outline:hover { background: var(--gray-50); border-color: var(--gray-300); }
+        .btn-sm { padding: 6px 14px; font-size: 0.8rem; }
+        .btn-block { width: 100%; justify-content: center; }
+
+        .botonera-superior {
+            display: flex; flex-wrap: wrap; gap: 10px;
+            justify-content: center; margin-bottom: 24px;
+        }
+
+        .badge {
+            display: inline-block; padding: 3px 14px; border-radius: 50px;
+            font-size: 0.7rem; font-weight: 700; margin-left: 8px;
+            vertical-align: middle; text-transform: uppercase; letter-spacing: 0.5px;
+        }
+        .badge-admin { background: var(--accent); color: white; }
+        .badge-visitante { background: var(--secondary); color: var(--gray-800); }
+
+        .modo-lectura-banner {
+            background: linear-gradient(135deg, #fffbeb, #fef3c7);
+            border: 2px solid var(--secondary); border-radius: var(--radius);
+            padding: 16px 24px; text-align: center; margin: 0 20px 20px;
+            color: #92400e; font-weight: 500; display: none;
+        }
+        .modo-lectura-banner i { margin-right: 8px; }
+
+        .foto-preview {
+            max-width: 100px; max-height: 100px; border-radius: 50%;
+            margin: 10px auto; display: block; border: 3px solid var(--primary-light);
+        }
+
+        .foro-contenedor { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+
+        .contacto-card {
+            max-width: 600px; margin: 0 auto; background: white;
+            padding: 35px 40px; border-radius: var(--radius);
+            box-shadow: var(--shadow-sm); border: 1px solid var(--gray-100);
+        }
+        .contacto-card .contacto-item {
+            display: flex; align-items: center; gap: 16px;
+            padding: 12px 0; border-bottom: 1px solid var(--gray-100);
+        }
+        .contacto-card .contacto-item:last-child { border-bottom: none; }
+        .contacto-card .contacto-item i {
+            width: 36px; height: 36px; background: var(--primary-light);
+            color: white; border-radius: 50%; display: flex;
+            align-items: center; justify-content: center;
+            font-size: 0.9rem; flex-shrink: 0;
+        }
+        .contacto-card .contacto-item strong {
+            color: var(--gray-700); font-weight: 600; margin-right: 4px;
+        }
+        .contacto-card .contacto-item a {
+            color: var(--primary-light); text-decoration: none; transition: var(--transition);
+        }
+        .contacto-card .contacto-item a:hover { color: var(--primary); }
+
+        footer {
+            background: var(--primary-dark); color: rgba(255,255,255,0.8);
+            text-align: center; padding: 50px 20px 40px; margin-top: 20px;
+        }
+        footer .footer-content { max-width: 800px; margin: 0 auto; }
+        footer h3 {
+            font-size: 1.6rem; font-weight: 700; margin-bottom: 4px; color: white;
+        }
+        footer h3 span { color: var(--secondary-light); }
+        footer p { opacity: 0.7; font-size: 0.95rem; }
+        footer .footer-divider {
+            width: 50px; height: 3px; background: var(--secondary);
+            margin: 16px auto; border-radius: 4px;
+        }
+        footer .footer-social {
+            display: flex; justify-content: center; gap: 16px; margin-top: 16px;
+        }
+        footer .footer-social a {
+            color: rgba(255,255,255,0.5); font-size: 1.2rem;
+            transition: var(--transition); width: 40px; height: 40px;
+            border-radius: 50%; border: 1px solid rgba(255,255,255,0.1);
+            display: flex; align-items: center; justify-content: center;
+            text-decoration: none;
+        }
+        footer .footer-social a:hover {
+            color: white; border-color: rgba(255,255,255,0.3);
+            background: rgba(255,255,255,0.05); transform: translateY(-3px);
+        }
+        footer .copyright { font-size: 0.8rem; opacity: 0.4; margin-top: 20px; }
+
+        .solo-admin { display: none; }
+        .text-center { text-align: center; }
+        .mt-20 { margin-top: 20px; }
+        .mb-20 { margin-bottom: 20px; }
+        .sr-only {
+            position: absolute; width: 1px; height: 1px; padding: 0;
+            margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0;
+        }
+
+        .buscador { position: relative; margin-bottom: 24px; }
+        .buscador i {
+            position: absolute; left: 16px; top: 50%;
+            transform: translateY(-50%); color: var(--gray-400);
+        }
+        .buscador input {
+            width: 100%; padding: 14px 16px 14px 48px;
+            border: 2px solid var(--gray-200); border-radius: var(--radius);
+            font-size: 0.95rem; transition: var(--transition);
+            font-family: 'Inter', sans-serif; background: white;
+        }
+        .buscador input:focus {
+            border-color: var(--primary-light); outline: none;
+            box-shadow: 0 0 0 4px rgba(43,108,176,0.08);
+        }
+
+        @media (max-width: 992px) {
+            .foro-contenedor { grid-template-columns: 1fr; }
+            header h1 { font-size: 2.8rem; }
+            header .header-stats { gap: 30px; }
+        }
+        @media (max-width: 768px) {
+            header { padding: 50px 20px 40px; }
+            header h1 { font-size: 2.2rem; }
+            header p { font-size: 1rem; }
+            header .header-stats .stat .number { font-size: 1.5rem; }
+            nav a { padding: 14px 14px; font-size: 0.8rem; }
+            nav a i { display: none; }
+            .login-box { padding: 30px 24px; }
+            .login-box .logo-text { font-size: 1.4rem; }
+            .docente-item { flex-direction: column; text-align: center; }
+            .docente-acciones { justify-content: center; }
+            .numero h2 { font-size: 2rem; }
+            section { padding: 40px 16px; }
+            .titulo { font-size: 1.6rem; }
+            .contacto-card { padding: 24px 20px; }
+            .panel { padding: 20px; }
+        }
+        @media (max-width: 480px) {
+            header h1 { font-size: 1.8rem; }
+            header .header-stats { gap: 20px; }
+            .login-box { padding: 20px 16px; }
+            .tarjeta { padding: 20px 16px; }
+            .toast-container { max-width: 95%; top: 10px; right: 10px; }
+            .docente-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="toast-container" id="toastContainer" role="status" aria-live="polite"></div>
+
+<div class="login-overlay" id="loginOverlay" role="dialog" aria-label="Inicio de sesión">
+    <div class="login-box">
+        <span class="logo-icon">🏫</span>
+        <div class="logo-text">Colegio <span>Bethel</span></div>
+        <p class="subtitulo">Sistema Teleinformático Inteligente</p>
+        
+        <div class="form-group">
+            <label for="loginUser"><i class="fas fa-user"></i> Usuario</label>
+            <input type="text" id="loginUser" placeholder="Ingresa tu usuario" value="admin" autocomplete="username">
+        </div>
+        
+        <div class="form-group">
+            <label for="loginPass"><i class="fas fa-lock"></i> Contraseña</label>
+            <input type="password" id="loginPass" placeholder="Ingresa tu contraseña" value="admin123" autocomplete="current-password">
+        </div>
+        
+        <button class="btn-login" onclick="iniciarSesion()" id="btnLogin">
+            <i class="fas fa-sign-in-alt"></i> Iniciar Sesión
+        </button>
+        
+        <div class="divider">o</div>
+        
+        <button class="btn-invitado" onclick="entrarComoInvitado()">
+            <i class="fas fa-eye"></i> Entrar como Invitado (Solo lectura)
+        </button>
+        
+        <div class="info">
+            <strong>Credenciales de prueba:</strong><br>
+            <span class="badge-test">admin</span> / <span class="badge-test">admin123</span><br>
+            <span style="color: var(--accent);"><i class="fas fa-check-circle"></i> Los invitados pueden ver toda la información sin login</span>
+        </div>
+    </div>
+</div>
+
+<div class="modo-lectura-banner" id="bannerLectura" role="alert">
+    <i class="fas fa-eye"></i> Estás en <strong>MODO LECTURA</strong> - Puedes ver toda la información pero no editar.
+    <div style="font-size:0.85rem; margin-top:4px; color:#92400e;">
+        <i class="fas fa-info-circle"></i> Inicia sesión para agregar, editar o eliminar contenido.
+    </div>
+</div>
+
+<header>
+    <div class="header-content">
+        <div class="header-badge">
+            <i class="fas fa-graduation-cap"></i> Educación de Excelencia
+        </div>
+        <h1>Colegio <span>Bethel</span></h1>
+        <p>Sistema Teleinformático Inteligente para la Comunicación Escolar</p>
+        
+        <div class="header-stats">
+            <div class="stat">
+                <div class="number">330+</div>
+                <div class="label"><i class="fas fa-user-graduate"></i> Estudiantes</div>
+            </div>
+            <div class="stat">
+                <div class="number" id="contadorHeader">0</div>
+                <div class="label"><i class="fas fa-chalkboard-teacher"></i> Docentes</div>
+            </div>
+            <div class="stat">
+                <div class="number">20</div>
+                <div class="label"><i class="fas fa-school"></i> Aulas</div>
+            </div>
+            <div class="stat">
+                <div class="number">98%</div>
+                <div class="label"><i class="fas fa-star"></i> Satisfacción</div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<nav role="navigation" aria-label="Navegación principal">
+    <a href="#inicio"><i class="fas fa-home"></i> Inicio</a>
+    <a href="#modulos"><i class="fas fa-th-large"></i> Módulos</a>
+    <a href="#docentes"><i class="fas fa-chalkboard-teacher"></i> Docentes</a>
+    <a href="#estadisticas"><i class="fas fa-chart-bar"></i> Estadísticas</a>
+    <a href="#noticias"><i class="fas fa-newspaper"></i> Noticias</a>
+    <a href="#foro"><i class="fas fa-comments"></i> Foro</a>
+    <a href="#beneficios"><i class="fas fa-gift"></i> Beneficios</a>
+    <a href="#robot-virtual"><i class="fas fa-robot"></i> Robot</a>
+    <a href="#contacto"><i class="fas fa-envelope"></i> Contacto</a>
+    <a class="btn-cerrar-sesion" onclick="cerrarSesion()" id="btnCerrarSesion" role="button">
+        <i class="fas fa-sign-out-alt"></i> Cerrar Sesión
+    </a>
+</nav>
+
+<section id="inicio">
+    <h2 class="titulo"><i class="fas fa-hand-wave"></i> Bienvenidos</h2>
+    <div style="max-width: 800px; margin: 0 auto; text-align: center; font-size: 1.1rem; color: var(--gray-600);">
+        <p>
+            Esta plataforma permite gestionar la comunicación, el seguimiento académico,
+            la asistencia, las tareas y los eventos institucionales del Colegio Bethel.
+        </p>
+        <p style="margin-top: 12px; font-weight: 500; color: var(--primary);">
+            <i class="fas fa-gem" style="color: var(--secondary);"></i> 
+            Innovando la educación mediante la tecnología
+        </p>
+    </div>
+</section>
+
+<section id="modulos">
+    <h2 class="titulo"><i class="fas fa-th-large"></i> Módulos del Sistema</h2>
+    <div class="tarjetas">
+        <div class="tarjeta">
+            <span class="icon">👨‍🎓</span>
+            <h3>Estudiantes</h3>
+            <p>Consulta de notas, horarios, tareas y recursos educativos.</p>
+        </div>
+        <div class="tarjeta">
+            <span class="icon">👨‍🏫</span>
+            <h3>Docentes</h3>
+            <p>Registro de notas, asistencia y actividades académicas.</p>
+            <ul id="listaDocentesModulo"></ul>
+        </div>
+        <div class="tarjeta">
+            <span class="icon">👨‍👩‍👧</span>
+            <h3>Padres</h3>
+            <p>Seguimiento del rendimiento y comunicación con docentes.</p>
+        </div>
+        <div class="tarjeta">
+            <span class="icon">👨‍💼</span>
+            <h3>Directivos</h3>
+            <p>Administración de la información institucional.</p>
+        </div>
+    </div>
+</section>
+
+<section id="docentes">
+    <h2 class="titulo">
+        <i class="fas fa-chalkboard-teacher"></i> Administrar Docentes
+        <span class="badge badge-admin solo-admin">Admin</span>
+        <span class="badge badge-visitante" id="badgeVisitante" style="display:none;"><i class="fas fa-eye"></i> Solo lectura</span>
+    </h2>
+
+    <div class="botonera-superior solo-admin">
+        <button onclick="cargarDocentesEjemplo()" class="btn-success">
+            <i class="fas fa-upload"></i> Cargar 25 Ejemplos
+        </button>
+        <button onclick="limpiarDocentes()" class="btn-danger">
+            <i class="fas fa-trash"></i> Limpiar Lista
+        </button>
+        <button onclick="exportarDatos()" class="btn-warning">
+            <i class="fas fa-download"></i> Exportar Backup
+        </button>
+        <button onclick="document.getElementById('importFileInput').click()" class="btn-outline">
+            <i class="fas fa-upload"></i> Importar Backup
+        </button>
+        <input type="file" id="importFileInput" accept=".json" style="display:none;" onchange="importarDatos(event)">
+    </div>
+
+    <div class="buscador">
+        <i class="fas fa-search"></i>
+        <input type="text" id="buscarDocente" placeholder="Buscar docente por nombre..." oninput="filtrarDocentes()">
+    </div>
+
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:30px;">
+        <div class="panel solo-admin">
+            <h3><i class="fas fa-user-plus"></i> Agregar Docente</h3>
+            <label for="nombreDocente" class="sr-only">Nombre completo</label>
+            <input type="text" id="nombreDocente" placeholder="Nombre completo">
+            
+            <label for="asignaturaDocente" class="sr-only">Asignatura</label>
+            <input type="text" id="asignaturaDocente" placeholder="Asignatura">
+            
+            <label for="emailDocente" class="sr-only">Correo electrónico</label>
+            <input type="email" id="emailDocente" placeholder="Correo electrónico">
+            
+            <div style="margin: 12px 0;">
+                <label style="display:block; font-weight:600; margin-bottom:4px; font-size:0.9rem;">
+                    <i class="fas fa-camera"></i> Foto del docente:
+                </label>
+                <input type="file" id="fotoDocente" accept="image/*" onchange="previsualizarFoto(event)">
+                <div id="previewContainer"></div>
+            </div>
+            
+            <button onclick="agregarDocente()" class="btn-success btn-block">
+                <i class="fas fa-plus"></i> Agregar Docente
+            </button>
+        </div>
+
+        <div class="panel">
+            <h3><i class="fas fa-list"></i> Lista de Docentes</h3>
+            <div id="listaDocentes"></div>
+        </div>
+    </div>
+
+    <h3 style="text-align:center; margin-top:45px; color:var(--primary); font-weight:700;">
+        <i class="fas fa-images" style="color:var(--secondary);"></i> Galería de Docentes
+    </h3>
+    <div class="docente-grid" id="galeriaDocentes"></div>
+</section>
+
+<section id="estadisticas">
+    <h2 class="titulo"><i class="fas fa-chart-bar"></i> Estadísticas Institucionales</h2>
+    <div class="estadisticas">
+        <div class="numero">
+            <span class="icon"><i class="fas fa-user-graduate"></i></span>
+            <h2>330</h2>
+            <p>Estudiantes</p>
+        </div>
+        <div class="numero">
+            <span class="icon"><i class="fas fa-chalkboard-teacher"></i></span>
+            <h2 id="contadorDocentes">0</h2>
+            <p>Docentes</p>
+        </div>
+        <div class="numero">
+            <span class="icon"><i class="fas fa-school"></i></span>
+            <h2>20</h2>
+            <p>Aulas</p>
+        </div>
+        <div class="numero">
+            <span class="icon"><i class="fas fa-star"></i></span>
+            <h2>98%</h2>
+            <p>Satisfacción</p>
+        </div>
+    </div>
+</section>
+
+<section id="noticias">
+    <h2 class="titulo"><i class="fas fa-newspaper"></i> Noticias Recientes</h2>
+    <div id="listaNoticiasSeccion"></div>
+</section>
+
+<section id="foro">
+    <h2 class="titulo">
+        <i class="fas fa-comments"></i> Foro Escolar y Calendario
+        <span class="badge badge-admin solo-admin">Admin</span>
+    </h2>
+
+    <div class="foro-contenedor">
+        <div class="panel solo-admin">
+            <h3><i class="fas fa-pen-fancy"></i> Publicar Noticia</h3>
+            <label for="tituloNoticia" class="sr-only">Título</label>
+            <input type="text" id="tituloNoticia" placeholder="Título de la noticia">
+            
+            <label for="contenidoNoticia" class="sr-only">Contenido</label>
+            <textarea id="contenidoNoticia" placeholder="Escribe el contenido de la noticia..."></textarea>
+            
+            <button onclick="agregarNoticia()" class="btn-success btn-block">
+                <i class="fas fa-paper-plane"></i> Publicar
+            </button>
+        </div>
+
+        <div class="panel">
+            <h3><i class="fas fa-list-ul"></i> Noticias Publicadas</h3>
+            <div id="listaNoticias"></div>
+        </div>
+
+        <div class="panel solo-admin">
+            <h3><i class="fas fa-calendar-plus"></i> Agregar Evento</h3>
+            <label for="fechaEvento" class="sr-only">Fecha</label>
+            <input type="date" id="fechaEvento">
+            
+            <label for="eventoCalendario" class="sr-only">Nombre del evento</label>
+            <input type="text" id="eventoCalendario" placeholder="Nombre del evento">
+            
+            <button onclick="agregarEvento()" class="btn-success btn-block">
+                <i class="fas fa-plus"></i> Agregar Evento
+            </button>
+        </div>
+
+        <div class="panel">
+            <h3><i class="fas fa-calendar-alt"></i> Eventos Programados</h3>
+            <div id="listaEventos"></div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================
+     🤖 SECCIÓN ROBOT VIRTUAL
+     ============================================ -->
+<section id="robot-virtual">
+    <h2 class="titulo">
+        <i class="fas fa-robot"></i> Robot Virtual Autónomo
+        <span class="badge badge-admin solo-admin">Admin</span>
+    </h2>
+
+    <div class="foro-contenedor">
+        <!-- PANEL DE CONTROL -->
+        <div class="panel">
+            <h3><i class="fas fa-gamepad"></i> Panel de Control</h3>
+
+            <div style="display:grid; grid-template-columns:repeat(3,70px); gap:8px; justify-content:center; margin:20px 0;">
+                <div></div>
+                <button onclick="moverRobot('arriba')" title="Avanzar">⬆️</button>
+                <div></div>
+                <button onclick="moverRobot('izquierda')" title="Girar izquierda">⬅️</button>
+                <button onclick="moverRobot('detener')" class="btn-danger" title="Detener">⏹️</button>
+                <button onclick="moverRobot('derecha')" title="Girar derecha">➡️</button>
+                <div></div>
+                <button onclick="moverRobot('abajo')" title="Retroceder">⬇️</button>
+                <div></div>
+            </div>
+
+            <button onclick="toggleAutonomo()" id="btnAutonomo" class="btn-success btn-block">
+                <i class="fas fa-brain"></i> Activar Modo Autónomo
+            </button>
+
+            <button onclick="toggleSensores()" class="btn-outline btn-block" style="margin-top:8px;">
+                <i class="fas fa-eye"></i> Mostrar/Ocultar Sensores
+            </button>
+
+            <button onclick="reiniciarRobot()" class="btn-warning btn-block" style="margin-top:8px;">
+                <i class="fas fa-redo"></i> Reiniciar Robot
+            </button>
+        </div>
+
+        <!-- TELEMETRÍA -->
+        <div class="panel">
+            <h3><i class="fas fa-chart-line"></i> Telemetría del Robot</h3>
+
+            <div class="estadisticas" style="grid-template-columns:1fr 1fr;">
+                <div class="numero">
+                    <span class="icon">📏</span>
+                    <h2 id="distanciaSensor">0</h2>
+                    <p>Distancia (cm)</p>
+                </div>
+                <div class="numero">
+                    <span class="icon">🔋</span>
+                    <h2 id="bateriaRobot">100</h2>
+                    <p>Batería %</p>
+                </div>
+                <div class="numero">
+                    <span class="icon">⚡</span>
+                    <h2 id="velocidadRobot">0</h2>
+                    <p>Velocidad</p>
+                </div>
+                <div class="numero">
+                    <span class="icon">🎯</span>
+                    <h2 id="estadoRobot">IDLE</h2>
+                    <p>Estado</p>
+                </div>
+            </div>
+
+            <div style="margin-top:20px;">
+                <h4 style="color:var(--primary); margin-bottom:10px;">
+                    <i class="fas fa-list"></i> Registro de Eventos
+                </h4>
+                <div id="logRobot" style="background:#0a1628; color:#48bb78; padding:14px; border-radius:8px; font-family:monospace; font-size:0.85rem; height:180px; overflow-y:auto;">
+                    <div>[SISTEMA] Esperando inicialización...</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ÁREA DEL ROBOT -->
+    <div style="margin-top:30px; text-align:center; position:relative;">
+        <canvas id="canvasRobot" width="900" height="550" 
+                style="max-width:100%; background:radial-gradient(circle at 50% 30%, #1a365d 0%, #0a1628 100%); border-radius:16px; box-shadow:0 20px 60px rgba(0,0,0,0.4);">
+        </canvas>
+        <div style="margin-top:12px; color:var(--gray-500); font-size:0.85rem;">
+            <i class="fas fa-info-circle"></i> Inicia sesión como admin para controlarlo
+        </div>
+    </div>
+</section>
+
+<section id="beneficios">
+    <h2 class="titulo"><i class="fas fa-gift"></i> Beneficios del Sistema</h2>
+
+    <h3 style="color:var(--primary); margin-bottom:16px; font-weight:700;">
+        <i class="fas fa-users" style="color:var(--secondary);"></i> Nómina de Docentes
+    </h3>
+    <div class="table-wrapper">
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Foto</th>
+                    <th>Nombre</th>
+                    <th>Asignatura</th>
+                    <th>Correo</th>
+                </tr>
+            </thead>
+            <tbody id="tablaDocentesBody"></tbody>
+        </table>
+    </div>
+
+    <br>
+
+    <h3 style="color:var(--primary); margin:35px 0 16px; font-weight:700;">
+        <i class="fas fa-user-tag" style="color:var(--secondary);"></i> Beneficios por Rol
+    </h3>
+    <div class="table-wrapper">
+        <table>
+            <thead>
+                <tr><th>Usuario</th><th>Beneficio</th></tr>
+            </thead>
+            <tbody>
+                <tr><td><strong>Estudiantes</strong></td><td>Acceso inmediato a información académica.</td></tr>
+                <tr><td><strong>Docentes</strong></td><td>Gestión eficiente de clases y evaluaciones.</td></tr>
+                <tr><td><strong>Padres</strong></td><td>Seguimiento permanente del proceso educativo.</td></tr>
+                <tr><td><strong>Directivos</strong></td><td>Mejor administración institucional.</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="text-center mt-20">
+        <button onclick="mensaje()" class="btn-outline">
+            <i class="fas fa-info-circle"></i> Conocer Más
+        </button>
+    </div>
+</section>
+
+<section id="contacto">
+    <h2 class="titulo"><i class="fas fa-envelope"></i> Contacto</h2>
+    <div class="contacto-card">
+        <div class="contacto-item">
+            <i class="fas fa-school"></i>
+            <div><strong>Institución:</strong> Colegio Bethel</div>
+        </div>
+        <div class="contacto-item">
+            <i class="fas fa-envelope"></i>
+            <div><strong>Correo:</strong> <a href="mailto:contacto@colegiobethel.edu.co">contacto@colegiobethel.edu.co</a></div>
+        </div>
+        <div class="contacto-item">
+            <i class="fas fa-phone"></i>
+            <div><strong>Teléfono:</strong> <a href="tel:+573001234567">+57 300 123 4567</a></div>
+        </div>
+        <div class="contacto-item">
+            <i class="fas fa-code"></i>
+            <div><strong>Proyecto:</strong> Sistema Teleinformático Inteligente</div>
+        </div>
+        <div class="contacto-item">
+            <i class="fas fa-calendar"></i>
+            <div><strong>Año:</strong> 2026</div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="footer-content">
+        <h3>🏫 Colegio <span>Bethel</span></h3>
+        <div class="footer-divider"></div>
+        <p>Innovando la educación mediante la tecnología.</p>
+        <div class="footer-social">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        </div>
+        <div class="copyright">
+            <i class="far fa-copyright"></i> 2026 - Todos los derechos reservados
+        </div>
+    </div>
+</footer>
+
+<script>
+    'use strict';
+
+    // ============================================
+    // 1. SISTEMA DE NOTIFICACIONES TOAST
+    // ============================================
+    function mostrarToast(mensaje, tipo = 'success', titulo = '') {
+        const container = document.getElementById('toastContainer');
+        const iconos = { success: '✅', error: '❌', warning: '⚠️', info: 'ℹ️' };
+        const titulos = { success: '¡Éxito!', error: 'Error', warning: 'Advertencia', info: 'Información' };
+
+        const toast = document.createElement('div');
+        toast.className = `toast toast-${tipo}`;
+        toast.innerHTML = `
+            <span class="toast-icon">${iconos[tipo] || 'ℹ️'}</span>
+            <div class="toast-content">
+                <div class="toast-title">${titulo || titulos[tipo]}</div>
+                <div class="toast-message">${mensaje}</div>
+            </div>
+            <button class="toast-close" onclick="this.parentElement.remove()">✕</button>
+        `;
+
+        container.appendChild(toast);
+
+        setTimeout(() => {
+            toast.classList.add('hide');
+            setTimeout(() => toast.remove(), 300);
+        }, 4500);
+    }
+
+    // ============================================
+    // 2. FUNCIÓN AUXILIAR: NORMALIZAR TEXTO
+    // ============================================
+    function normalizarTexto(texto) {
+        return (texto || '')
+            .toString()
+            .toLowerCase()
+            .normalize('NFD')
+            .replace(/[\u0300-\u036f]/g, '');
+    }
+
+    // ============================================
+    // 3. SISTEMA DE AUTENTICACIÓN
+    // ============================================
+    const USUARIOS_VALIDOS = [
+        { usuario: 'admin', password: 'admin123' },
+        { usuario: 'colegio', password: 'bethel2026' },
+        { usuario: 'director', password: 'director123' }
+    ];
+
+    let sesionActiva = false;
+    let intentosFallidos = 0;
+    const MAX_INTENTOS = 5;
+
+    function iniciarSesion() {
+        const usuario = document.getElementById('loginUser').value.trim();
+        const password = document.getElementById('loginPass').value.trim();
+        
+        if (intentosFallidos >= MAX_INTENTOS) {
+            mostrarToast('Demasiados intentos. Reinicia la página.', 'error');
+            return;
+        }
+
+        if (!usuario || !password) {
+            mostrarToast('Por favor, ingresa usuario y contraseña.', 'warning');
+            return;
+        }
+
+        const usuarioValido = USUARIOS_VALIDOS.find(u => 
+            u.usuario === usuario && u.password === password
+        );
+
+        if (usuarioValido) {
+            sesionActiva = true;
+            intentosFallidos = 0;
+            document.getElementById('loginOverlay').style.display = 'none';
+            mostrarElementosAdmin(true);
+            guardarSesion();
+            actualizarTodo();
+            ocultarBannerLectura();
+            mostrarToast(`Bienvenido ${usuario}!`, 'success', 'Sesión iniciada');
+        } else {
+            intentosFallidos++;
+            mostrarToast(`Usuario o contraseña incorrectos. Intento ${intentosFallidos}/${MAX_INTENTOS}`, 'error');
+            document.getElementById('loginPass').value = '';
+            document.getElementById('loginPass').focus();
+        }
+    }
+
+    function entrarComoInvitado() {
+        sesionActiva = false;
+        document.getElementById('loginOverlay').style.display = 'none';
+        mostrarElementosAdmin(false);
+        localStorage.removeItem('sesionActiva');
+        actualizarTodo();
+        mostrarBannerLectura();
+        mostrarToast('Has entrado en modo lectura.', 'info', 'Bienvenido invitado');
+    }
+
+    function cerrarSesion() {
+        if (confirm('¿Estás seguro de cerrar sesión?')) {
+            sesionActiva = false;
+            document.getElementById('loginOverlay').style.display = 'flex';
+            mostrarElementosAdmin(false);
+            localStorage.removeItem('sesionActiva');
+            document.getElementById('loginUser').value = 'admin';
+            document.getElementById('loginPass').value = 'admin123';
+            actualizarTodo();
+            ocultarBannerLectura();
+            mostrarToast('Sesión cerrada correctamente.', 'info');
+        }
+    }
+
+    function guardarSesion() {
+        localStorage.setItem('sesionActiva', 'true');
+    }
+
+    function verificarSesion() {
+        const sesionGuardada = localStorage.getItem('sesionActiva');
+        if (sesionGuardada === 'true') {
+            sesionActiva = true;
+            document.getElementById('loginOverlay').style.display = 'none';
+            mostrarElementosAdmin(true);
+            ocultarBannerLectura();
+            return true;
+        }
+        return false;
+    }
+
+    function mostrarElementosAdmin(mostrar) {
+        document.querySelectorAll('.solo-admin').forEach(el => {
+            el.style.display = mostrar ? 'block' : 'none';
+        });
+
+        document.getElementById('btnCerrarSesion').style.display = mostrar ? 'inline-flex' : 'none';
+        
+        document.querySelectorAll('.badge-admin').forEach(b => {
+            b.style.display = mostrar ? 'inline-block' : 'none';
+        });
+
+        const badgeVisitante = document.getElementById('badgeVisitante');
+        if (badgeVisitante) {
+            badgeVisitante.style.display = (!mostrar && document.getElementById('loginOverlay').style.display === 'none') ? 'inline-block' : 'none';
+        }
+    }
+
+    function mostrarBannerLectura() {
+        const banner = document.getElementById('bannerLectura');
+        if (banner) banner.style.display = 'block';
+    }
+
+    function ocultarBannerLectura() {
+        const banner = document.getElementById('bannerLectura');
+        if (banner) banner.style.display = 'none';
+    }
+
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') {
+            const overlay = document.getElementById('loginOverlay');
+            if (overlay.style.display !== 'none') {
+                const active = document.activeElement;
+                if (active && (active.id === 'loginUser' || active.id === 'loginPass')) {
+                    e.preventDefault();
+                    iniciarSesion();
+                }
+            }
+        }
+    });
+
+    // ============================================
+    // 4. GESTIÓN DE DATOS
+    // ============================================
+    function guardarDatos() {
+        try {
+            const datos = { docentes, noticias, eventos };
+            localStorage.setItem('colegioBethelDatos', JSON.stringify(datos));
+        } catch (e) {
+            console.error('Error guardando datos:', e);
+        }
+    }
+
+    function cargarDatos() {
+        try {
+            const datosGuardados = localStorage.getItem('colegioBethelDatos');
+            if (datosGuardados) {
+                const datos = JSON.parse(datosGuardados);
+                docentes = datos.docentes || [];
+                noticias = datos.noticias || [];
+                eventos = datos.eventos || [];
+                return true;
+            }
+        } catch (e) {
+            console.error('Error cargando datos:', e);
+        }
+        return false;
+    }
+
+    function exportarDatos() {
+        if (!sesionActiva) {
+            mostrarToast('Debes iniciar sesión para exportar datos.', 'warning');
+            return;
+        }
+        try {
+            const datos = JSON.stringify({ docentes, noticias, eventos }, null, 2);
+            const blob = new Blob([datos], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `backup-colegio-bethel-${new Date().toISOString().split('T')[0]}.json`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+            mostrarToast('Backup exportado correctamente.', 'success');
+        } catch (e) {
+            mostrarToast('Error al exportar: ' + e.message, 'error');
+        }
+    }
+
+    function importarDatos(event) {
+        if (!sesionActiva) {
+            mostrarToast('Debes iniciar sesión para importar datos.', 'warning');
+            return;
+        }
+        const file = event.target.files[0];
+        if (!file) return;
+
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            try {
+                const datos = JSON.parse(e.target.result);
+                if (datos.docentes && datos.noticias && datos.eventos) {
+                    if (confirm('¿Estás seguro de importar estos datos? Se reemplazará la información actual.')) {
+                        docentes = datos.docentes || [];
+                        noticias = datos.noticias || [];
+                        eventos = datos.eventos || [];
+                        actualizarTodo();
+                        guardarDatos();
+                        mostrarToast('Datos importados correctamente.', 'success');
+                    }
+                } else {
+                    mostrarToast('El archivo no tiene el formato correcto.', 'error');
+                }
+            } catch (err) {
+                mostrarToast('Error al leer el archivo: ' + err.message, 'error');
+            }
+        };
+        reader.readAsText(file);
+        event.target.value = '';
+    }
+
+    // ============================================
+    // 5. VARIABLES GLOBALES
+    // ============================================
+    let docentes = [];
+    let noticias = [];
+    let eventos = [];
+    let fotoSeleccionada = null;
+
+    // ============================================
+    // 6. FUNCIONES DE DOCENTES
+    // ============================================
+    function previsualizarFoto(event) {
+        const file = event.target.files[0];
+        if (file) {
+            if (file.size > 2 * 1024 * 1024) {
+                mostrarToast('La imagen no debe superar los 2MB.', 'warning');
+                event.target.value = '';
+                return;
+            }
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                fotoSeleccionada = e.target.result;
+                document.getElementById('previewContainer').innerHTML = 
+                    `<img src="${e.target.result}" class="foto-preview" alt="Vista previa de la foto">`;
+            };
+            reader.readAsDataURL(file);
+        }
+    }
+
+    function mensaje() {
+        mostrarToast('Gracias por visitar el Sistema Teleinformático del Colegio Bethel.', 'info', '¡Gracias!');
+    }
+
+    function validarEmail(email) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    }
+
+    function validarNombre(nombre) {
+        return nombre.length >= 2 && /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/.test(nombre);
+    }
+
+    function agregarDocente() {
+        if (!sesionActiva) {
+            mostrarToast('Debes iniciar sesión para agregar docentes.', 'warning');
+            return;
+        }
+
+        const nombre = document.getElementById('nombreDocente').value.trim();
+        const asignatura = document.getElementById('asignaturaDocente').value.trim();
+        const email = document.getElementById('emailDocente').value.trim();
+
+        if (!nombre || !asignatura) {
+            mostrarToast('Los campos "Nombre" y "Asignatura" son obligatorios.', 'warning');
+            return;
+        }
+
+        if (!validarNombre(nombre)) {
+            mostrarToast('El nombre solo debe contener letras y tener al menos 2 caracteres.', 'warning');
+            return;
+        }
+
+        if (email && !validarEmail(email)) {
+            mostrarToast('El correo electrónico no es válido.', 'warning');
+            return;
+        }
+
+        const nuevoDocente = {
+            id: Date.now(),
+            nombre: nombre,
+            asignatura: asignatura,
+            email: email || 'No especificado',
+            foto: fotoSeleccionada || null
+        };
+
+        docentes.push(nuevoDocente);
+        actualizarTodo();
+        guardarDatos();
+        limpiarCamposDocente();
+        mostrarToast(`Docente "${nombre}" agregado correctamente.`, 'success');
+    }
+
+    function limpiarCamposDocente() {
+        document.getElementById('nombreDocente').value = '';
+        document.getElementById('asignaturaDocente').value = '';
+        document.getElementById('emailDocente').value = '';
+        document.getElementById('fotoDocente').value = '';
+        document.getElementById('previewContainer').innerHTML = '';
+        fotoSeleccionada = null;
+    }
+
+    function eliminarDocente(id) {
+        if (!sesionActiva) {
+            mostrarToast('Debes iniciar sesión para eliminar docentes.', 'warning');
+            return;
+        }
+
+        const docente = docentes.find(d => d.id === id);
+        if (docente && confirm(`¿Eliminar al docente "${docente.nombre}"?`)) {
+            docentes = docentes.filter(d => d.id !== id);
+            actualizarTodo();
+            guardarDatos();
+            mostrarToast(`Docente "${docente.nombre}" eliminado correctamente.`, 'success');
+        }
+    }
+
+    function editarDocente(id) {
+        if (!sesionActiva) {
+            mostrarToast('Debes iniciar sesión para editar docentes.', 'warning');
+            return;
+        }
+
+        const docente = docentes.find(d => d.id === id);
+        if (!docente) return;
+
+        const nuevoNombre = prompt('Nuevo nombre:', docente.nombre);
+        if (nuevoNombre !== null && nuevoNombre.trim()) {
+            if (!validarNombre(nuevoNombre.trim())) {
+                mostrarToast('El nombre no es válido.', 'warning');
+                return;
+            }
+            docente.nombre = nuevoNombre.trim();
+        }
+
+        const nuevaAsignatura = prompt('Nueva asignatura:', docente.asignatura);
+        if (nuevaAsignatura !== null && nuevaAsignatura.trim()) {
+            docente.asignatura = nuevaAsignatura.trim();
+        }
+
+        const nuevoEmail = prompt('Nuevo correo:', docente.email);
+        if (nuevoEmail !== null) {
+            if (nuevoEmail.trim() && !validarEmail(nuevoEmail.trim())) {
+                mostrarToast('El correo no es válido.', 'warning');
+                return;
+            }
+            docente.email = nuevoEmail.trim() || 'No especificado';
+        }
+
+        if (confirm('¿Deseas cambiar la foto del docente?')) {
+            const input = document.createElement('input');
+            input.type = 'file';
+            input.accept = 'image/*';
+            input.onchange = function(e) {
+                const file = e.target.files[0];
+                if (file) {
+                    if (file.size > 2 * 1024 * 1024) {
+                        mostrarToast('La imagen no debe superar los 2MB.', 'warning');
+                        return;
+                    }
+                    const reader = new FileReader();
+                    reader.onload = function(ev) {
+                        docente.foto = ev.target.result;
+                        actualizarTodo();
+                        guardarDatos();
+                        mostrarToast('Foto actualizada correctamente.', 'success');
+                    };
+                    reader.readAsDataURL(file);
+                }
+            };
+            input.click();
+        }
+
+        actualizarTodo();
+        guardarDatos();
+        mostrarToast('Docente actualizado correctamente.', 'success');
+    }
+
+    function limpiarDocentes() {
+        if (!sesionActiva) {
+            mostrarToast('Debes iniciar sesión para limpiar la lista.', 'warning');
+            return;
+        }
+        if (docentes.length === 0) {
+            mostrarToast('No hay docentes para eliminar.', 'info');
+            return;
+        }
+        if (confirm('¿Eliminar TODOS los docentes? Esta acción no se puede deshacer.')) {
+            docentes = [];
+            actualizarTodo();
+            guardarDatos();
+            mostrarToast('Lista de docentes limpiada.', 'success');
+        }
+    }
+
+    function generarColor() {
+        const colores = ['#4CAF50','#2196F3','#FF9800','#9C27B0','#E91E63','#009688','#F44336','#3F51B5','#FF5722','#8BC34A','#00BCD4','#FFC107','#795548','#607D8B','#E91E63','#9E9E9E','#3F51B5','#FF4081','#7C4DFF','#64FFDA','#FF6E40','#B388FF','#82B1FF','#FFD740','#69F0AE'];
+        return colores[Math.floor(Math.random() * colores.length)];
+    }
+
+    function generarFotoSVG(nombre, color) {
+        const inicial = nombre.charAt(0).toUpperCase();
+        return `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Ccircle cx='50' cy='50' r='45' fill='${encodeURIComponent(color)}'/%3E%3Ctext x='50' y='55' text-anchor='middle' font-size='30' fill='white' font-weight='bold'%3E${inicial}%3C/text%3E%3C/svg%3E`;
+    }
+
+    function cargarDocentesEjemplo() {
+        if (!sesionActiva) {
+            mostrarToast('Debes iniciar sesión para cargar ejemplos.', 'warning');
+            return;
+        }
+
+        if (docentes.length > 0 && !confirm('Esto reemplazará la lista actual. ¿Continuar?')) {
+            return;
+        }
+
+        docentes = [];
+        const nombres = [
+            'María Rodríguez', 'Carlos Pérez', 'Ana Martínez', 'Luis Gómez', 'Patricia Díaz',
+            'Roberto Sánchez', 'Laura Torres', 'Jorge Ramírez', 'Carmen Flores', 'Andrés Morales',
+            'Isabel Castro', 'Fernando Ortiz', 'Gloria Mendoza', 'Raúl Jiménez', 'Silvia Rojas',
+            'Óscar Navarro', 'Elena Guzmán', 'Héctor Reyes', 'Diana Pineda', 'Mario Cruz',
+            'Rosa Salazar', 'Arturo Vásquez', 'Teresa Herrera', 'Eduardo León', 'Martha Peña'
+        ];
+
+        const asignaturas = [
+            'Matemáticas', 'Lenguaje', 'Ciencias', 'Historia', 'Inglés',
+            'Educación Física', 'Biología', 'Física', 'Química', 'Sociales',
+            'Filosofía', 'Ética', 'Música', 'Artes', 'Tecnología',
+            'Informática', 'Geografía', 'Religión', 'Emprendimiento', 'Economía',
+            'Política', 'Psicología', 'Orientación', 'Estadística', 'Cálculo'
+        ];
+
+        const dominios = ['@colegiobethel.edu.co', '@gmail.com', '@hotmail.com', '@yahoo.com'];
+
+        for (let i = 0; i < 25; i++) {
+            const nombre = nombres[i % nombres.length];
+            const asignatura = asignaturas[i % asignaturas.length];
+            const color = generarColor();
+            const foto = generarFotoSVG(nombre, color);
+            const nombreSinEspacios = nombre.toLowerCase().replace(/ /g, '.');
+            const dominio = dominios[i % dominios.length];
+            const email = `${nombreSinEspacios}${dominio}`;
+
+            docentes.push({
+                id: i + 1,
+                nombre: nombre,
+                asignatura: asignatura,
+                email: email,
+                foto: foto
+            });
+        }
+
+        actualizarTodo();
+        guardarDatos();
+        mostrarToast('✅ ¡25 docentes cargados correctamente!', 'success');
+    }
+
+    function filtrarDocentes() {
+        const busqueda = normalizarTexto(document.getElementById('buscarDocente').value).trim();
+        const items = document.querySelectorAll('.docente-item');
+        let encontrados = 0;
+        
+        items.forEach(item => {
+            const nombre = normalizarTexto(item.querySelector('.docente-info strong')?.textContent);
+            const asignatura = normalizarTexto(item.querySelector('.docente-info')?.textContent);
+            const coincide = nombre.includes(busqueda) || asignatura.includes(busqueda);
+            item.style.display = coincide ? 'flex' : 'none';
+            if (coincide) encontrados++;
+        });
+
+        const lista = document.getElementById('listaDocentes');
+        const mensajeExistente = lista.querySelector('.sin-resultados');
+        if (busqueda && encontrados === 0) {
+            if (!mensajeExistente) {
+                const msg = document.createElement('p');
+                msg.className = 'sin-resultados';
+                msg.style.cssText = 'color:var(--gray-500); text-align:center; padding:20px;';
+                msg.textContent = '🔍 No se encontraron docentes con ese nombre.';
+                lista.appendChild(msg);
+            }
+        } else if (mensajeExistente) {
+            mensajeExistente.remove();
+        }
+    }
+
+    // ============================================
+    // 7. FUNCIONES DE ACTUALIZACIÓN
+    // ============================================
+    function actualizarTodo() {
+        actualizarListaDocentes();
+        actualizarGaleria();
+        actualizarTabla();
+        actualizarModulo();
+        actualizarContadorDocentes();
+        actualizarNoticias();
+        actualizarEventos();
+    }
+
+    function actualizarListaDocentes() {
+        const lista = document.getElementById('listaDocentes');
+        lista.innerHTML = '';
+
+        if (docentes.length === 0) {
+            lista.innerHTML = '<p style="color:var(--gray-500); text-align:center; padding:20px;"><i class="fas fa-info-circle"></i> No hay docentes registrados</p>';
+            return;
+        }
+
+        docentes.forEach(docente => {
+            const item = document.createElement('div');
+            item.className = 'docente-item';
+            
+            const fotoHTML = docente.foto 
+                ? `<img src="${docente.foto}" class="docente-foto" alt="Foto de ${docente.nombre}">`
+                : `<div class="docente-foto" style="background:var(--gray-100); font-size:1.6rem;">👤</div>`;
+
+            let accionesHTML = '';
+            if (sesionActiva) {
+                accionesHTML = `
+                    <div class="docente-acciones">
+                        <button class="btn-warning btn-sm" onclick="editarDocente(${docente.id})"><i class="fas fa-edit"></i> Editar</button>
+                        <button class="btn-danger btn-sm" onclick="eliminarDocente(${docente.id})"><i class="fas fa-trash"></i> Eliminar</button>
+                    </div>
+                `;
+            }
+
+            item.innerHTML = `
+                ${fotoHTML}
+                <div class="docente-info">
+                    <strong>${docente.nombre}</strong>
+                    <div class="detail"><i class="fas fa-book"></i> ${docente.asignatura}</div>
+                    <div class="detail"><i class="fas fa-envelope"></i> ${docente.email}</div>
+                </div>
+                ${accionesHTML}
+            `;
+            lista.appendChild(item);
+        });
+    }
+
+    function actualizarGaleria() {
+        const galeria = document.getElementById('galeriaDocentes');
+        galeria.innerHTML = '';
+
+        if (docentes.length === 0) {
+            galeria.innerHTML = '<p style="color:var(--gray-500); text-align:center; padding:20px;"><i class="fas fa-info-circle"></i> No hay docentes para mostrar</p>';
+            return;
+        }
+
+        docentes.forEach(docente => {
+            const card = document.createElement('div');
+            card.className = 'docente-card';
+            
+            const fotoHTML = docente.foto 
+                ? `<img src="${docente.foto}" class="foto" alt="Foto de ${docente.nombre}">`
+                : `<div class="foto" style="background:var(--gray-100); display:flex; align-items:center; justify-content:center; font-size:3rem; margin:0 auto 15px;">👤</div>`;
+
+            card.innerHTML = `
+                ${fotoHTML}
+                <h4>${docente.nombre}</h4>
+                <p><i class="fas fa-book" style="color:var(--secondary);"></i> ${docente.asignatura}</p>
+                <p style="font-size:0.85rem; color:var(--gray-400);"><i class="fas fa-envelope"></i> ${docente.email}</p>
+            `;
+            galeria.appendChild(card);
+        });
+    }
+
+    function actualizarTabla() {
+        const tbody = document.getElementById('tablaDocentesBody');
+        tbody.innerHTML = '';
+
+        if (docentes.length === 0) {
+            tbody.innerHTML = '<tr><td colspan="5" style="text-align:center; color:var(--gray-500);">No hay docentes registrados</td></tr>';
+            return;
+        }
+
+        docentes.forEach((docente, index) => {
+            const tr = document.createElement('tr');
+            const fotoHTML = docente.foto 
+                ? `<img src="${docente.foto}" style="width:40px; height:40px; border-radius:50%; object-fit:cover;">`
+                : `<span style="font-size:1.5rem;">👤</span>`;
+            
+            tr.innerHTML = `
+                <td>${index + 1}</td>
+                <td>${fotoHTML}</td>
+                <td><strong>${docente.nombre}</strong></td>
+                <td>${docente.asignatura}</td>
+                <td>${docente.email}</td>
+            `;
+            tbody.appendChild(tr);
+        });
+    }
+
+    function actualizarModulo() {
+        const lista = document.getElementById('listaDocentesModulo');
+        lista.innerHTML = '';
+
+        if (docentes.length === 0) {
+            lista.innerHTML = '<li style="color:var(--gray-500);">No hay docentes registrados</li>';
+            return;
+        }
+
+        docentes.slice(0, 5).forEach(docente => {
+            const li = document.createElement('li');
+            li.textContent = `📌 ${docente.nombre} - ${docente.asignatura}`;
+            lista.appendChild(li);
+        });
+
+        if (docentes.length > 5) {
+            const li = document.createElement('li');
+            li.textContent = `... y ${docentes.length - 5} más`;
+            li.style.color = 'var(--gray-400)';
+            lista.appendChild(li);
+        }
+    }
+
+    function actualizarContadorDocentes() {
+        const count = docentes.length;
+        const contadorDocentes = document.getElementById('contadorDocentes');
+        const contadorHeader = document.getElementById('contadorHeader');
+
+        if (contadorDocentes) contadorDocentes.textContent = count;
+        if (contadorHeader) contadorHeader.textContent = count;
+
+        document.querySelectorAll('[data-contador-docentes]').forEach(el => {
+            el.textContent = count;
+        });
+    }
+
+    // ============================================
+    // 8. FUNCIONES DE NOTICIAS
+    // ============================================
+    function agregarNoticia() {
+        if (!sesionActiva) {
+            mostrarToast('Debes iniciar sesión para publicar noticias.', 'warning');
+            return;
+        }
+
+        const titulo = document.getElementById('tituloNoticia').value.trim();
+        const contenido = document.getElementById('contenidoNoticia').value.trim();
+
+        if (!titulo || !contenido) {
+            mostrarToast('Completa todos los campos para publicar.', 'warning');
+            return;
+        }
+
+        if (titulo.length < 3) {
+            mostrarToast('El título debe tener al menos 3 caracteres.', 'warning');
+            return;
+        }
+
+        const noticia = {
+            id: Date.now(),
+            titulo: titulo,
+            contenido: contenido,
+            fecha: new Date().toLocaleDateString('es-ES', { 
+                weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' 
+            })
+        };
+
+        noticias.unshift(noticia);
+        actualizarNoticias();
+        guardarDatos();
+
+        document.getElementById('tituloNoticia').value = '';
+        document.getElementById('contenidoNoticia').value = '';
+        mostrarToast('Noticia publicada correctamente.', 'success');
+    }
+
+    function eliminarNoticia(id) {
+        if (!sesionActiva) {
+            mostrarToast('Debes iniciar sesión para eliminar noticias.', 'warning');
+            return;
+        }
+
+        const noticia = noticias.find(n => n.id === id);
+        if (noticia && confirm(`¿Eliminar la noticia "${noticia.titulo}"?`)) {
+            noticias = noticias.filter(n => n.id !== id);
+            actualizarNoticias();
+            guardarDatos();
+            mostrarToast('Noticia eliminada.', 'success');
+        }
+    }
+
+    function actualizarNoticias() {
+        const lista = document.getElementById('listaNoticias');
+        lista.innerHTML = '';
+
+        if (noticias.length === 0) {
+            lista.innerHTML = '<p style="color:var(--gray-500); text-align:center; padding:20px;"><i class="fas fa-info-circle"></i> No hay noticias publicadas</p>';
+        } else {
+            noticias.forEach(noticia => {
+                const item = document.createElement('div');
+                item.className = 'item';
+                const accionesHTML = sesionActiva 
+                    ? `<button class="btn-danger btn-sm" onclick="eliminarNoticia(${noticia.id})"><i class="fas fa-trash"></i> Eliminar</button>`
+                    : '';
+                item.innerHTML = `
+                    <small><i class="far fa-calendar-alt"></i> ${noticia.fecha || 'Hoy'}</small>
+                    <h4>${noticia.titulo}</h4>
+                    <p>${noticia.contenido}</p>
+                    ${accionesHTML}
+                `;
+                lista.appendChild(item);
+            });
+        }
+
+        const seccion = document.getElementById('listaNoticiasSeccion');
+        seccion.innerHTML = '';
+
+        if (noticias.length === 0) {
+            seccion.innerHTML = '<p style="text-align:center; color:var(--gray-500);"><i class="fas fa-info-circle"></i> No hay noticias publicadas</p>';
+        } else {
+            noticias.slice(0, 5).forEach(noticia => {
+                const div = document.createElement('div');
+                div.className = 'noticia';
+                div.innerHTML = `
+                    <div class="noticia-header">
+                        <h3>${noticia.titulo}</h3>
+                        <span class="fecha"><i class="far fa-calendar-alt"></i> ${noticia.fecha || 'Hoy'}</span>
+                    </div>
+                    <p>${noticia.contenido}</p>
+                `;
+                seccion.appendChild(div);
+            });
+        }
+    }
+
+    // ============================================
+    // 9. FUNCIONES DE EVENTOS
+    // ============================================
+    function agregarEvento() {
+        if (!sesionActiva) {
+            mostrarToast('Debes iniciar sesión para agregar eventos.', 'warning');
+            return;
+        }
+
+        const inputFecha = document.getElementById('fechaEvento');
+        const inputEvento = document.getElementById('eventoCalendario');
+        const fecha = inputFecha.value;
+        const evento = inputEvento.value.trim();
+
+        if (!fecha) {
+            mostrarToast('Debes seleccionar una fecha para el evento.', 'warning');
+            inputFecha.focus();
+            return;
+        }
+
+        if (!evento) {
+            mostrarToast('Debes escribir el nombre del evento.', 'warning');
+            inputEvento.focus();
+            return;
+        }
+
+        if (evento.length < 3) {
+            mostrarToast('El nombre del evento debe tener al menos 3 caracteres.', 'warning');
+            inputEvento.focus();
+            return;
+        }
+
+        const fechaObj = new Date(fecha + 'T00:00:00');
+        if (isNaN(fechaObj.getTime())) {
+            mostrarToast('La fecha ingresada no es válida.', 'error');
+            inputFecha.focus();
+            return;
+        }
+
+        const nuevoEvento = {
+            id: Date.now(),
+            fecha: fecha,
+            evento: evento
+        };
+
+        eventos.push(nuevoEvento);
+        actualizarEventos();
+        guardarDatos();
+
+        inputFecha.value = '';
+        inputEvento.value = '';
+        mostrarToast('Evento agregado correctamente.', 'success');
+    }
+
+    function eliminarEvento(id) {
+        if (!sesionActiva) {
+            mostrarToast('Debes iniciar sesión para eliminar eventos.', 'warning');
+            return;
+        }
+
+        const evento = eventos.find(e => e.id === id);
+        if (evento && confirm(`¿Eliminar el evento "${evento.evento}"?`)) {
+            eventos = eventos.filter(e => e.id !== id);
+            actualizarEventos();
+            guardarDatos();
+            mostrarToast('Evento eliminado.', 'success');
+        }
+    }
+
+    function actualizarEventos() {
+        const lista = document.getElementById('listaEventos');
+        lista.innerHTML = '';
+
+        if (eventos.length === 0) {
+            lista.innerHTML = '<p style="color:var(--gray-500); text-align:center; padding:20px;"><i class="fas fa-info-circle"></i> No hay eventos programados</p>';
+            return;
+        }
+
+        eventos.sort((a, b) => a.fecha.localeCompare(b.fecha));
+
+        eventos.forEach(evento => {
+            const item = document.createElement('div');
+            item.className = 'item';
+            
+            let fechaFormateada = evento.fecha;
+            try {
+                const fechaObj = new Date(evento.fecha + 'T00:00:00');
+                fechaFormateada = fechaObj.toLocaleDateString('es-ES', {
+                    weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
+                });
+            } catch(e) {
+                fechaFormateada = evento.fecha;
+            }
+
+            const accionesHTML = sesionActiva 
+                ? `<button class="btn-danger btn-sm" onclick="eliminarEvento(${evento.id})"><i class="fas fa-trash"></i> Eliminar</button>`
+                : '';
+
+            item.innerHTML = `
+                <strong><i class="fas fa-calendar-day" style="color:var(--secondary);"></i> ${fechaFormateada}</strong><br>
+                ${evento.evento}
+                ${accionesHTML}
+            `;
+            lista.appendChild(item);
+        });
+    }
+
+    // ============================================
+    // 🤖 10. MÓDULO DE ROBÓTICA VIRTUAL
+    // ============================================
+    const canvasRobot = document.getElementById('canvasRobot');
+    const ctxRobot = canvasRobot ? canvasRobot.getContext('2d') : null;
+
+    let robot = {
+        x: 450, y: 275,
+        targetX: 450, targetY: 275,
+        angulo: 0, targetAngulo: 0,
+        velocidad: 0,
+        bateria: 100,
+        modoAutonomo: false,
+        mostrarSensores: false,
+        estado: 'IDLE',
+        emocion: 'feliz',
+        parpadeo: 0,
+        proximoParpadeo: 0,
+        pulsoAntena: 0,
+        miradaOffsetX: 0,
+        miradaOffsetY: 0,
+        sacudida: 0
+    };
+
+    let estela = [];
+    let particulas = [];
+    let ondas = [];
+
+    let obstaculos = [
+        { x: 150, y: 100, w: 60, h: 60, tipo: 'libro', color: '#8B4513' },
+        { x: 700, y: 350, w: 80, h: 80, tipo: 'mueble', color: '#4a5568' },
+        { x: 400, y: 420, w: 70, h: 50, tipo: 'caja', color: '#d97706' },
+        { x: 600, y: 120, w: 50, h: 100, tipo: 'puerta', color: '#2b6cb0' },
+        { x: 220, y: 380, w: 55, h: 55, tipo: 'planta', color: '#48bb78' }
+    ];
+
+    function iniciarRobot() {
+        if (!canvasRobot) return;
+        robot.x = 450; robot.y = 275;
+        robot.targetX = 450; robot.targetY = 275;
+        robot.angulo = 0; robot.targetAngulo = 0;
+        robot.velocidad = 0;
+        robot.bateria = 100;
+        robot.estado = 'IDLE';
+        robot.emocion = 'feliz';
+        robot.sacudida = 0;
+        estela = [];
+        particulas = [];
+        ondas = [];
+        dibujarRobot();
+        logRobot('🤖 Robot iniciado - Sistema listo');
+        actualizarTelemetria();
+    }
+
+    function lerp(a, b, t) {
+        return a + (b - a) * t;
+    }
+
+    function distanciaA(x1, y1, x2, y2) {
+        return Math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2);
+    }
+
+    function ajustarBrillo(hex, delta) {
+        const num = parseInt(hex.replace('#', ''), 16);
+        const r = Math.max(0, Math.min(255, (num >> 16) + delta));
+        const g = Math.max(0, Math.min(255, ((num >> 8) & 0x00FF) + delta));
+        const b = Math.max(0, Math.min(255, (num & 0x0000FF) + delta));
+        return `rgb(${r},${g},${b})`;
+    }
+
+    function detectarObstaculo() {
+        if (!canvasRobot) return 120;
+        const maxDist = 120;
+        for (let d = 15; d < maxDist; d += 4) {
+            const px = robot.x + Math.cos(robot.angulo) * d;
+            const py = robot.y + Math.sin(robot.angulo) * d;
+            for (let o of obstaculos) {
+                if (px > o.x && px < o.x + o.w && py > o.y && py < o.y + o.h) return d;
+            }
+            if (px < 20 || px > canvasRobot.width - 20 || py < 20 || py > canvasRobot.height - 20) return d;
+        }
+        return maxDist;
+    }
+
+    function dibujarObstaculos() {
+        obstaculos.forEach(o => {
+            ctxRobot.fillStyle = 'rgba(0,0,0,0.3)';
+            ctxRobot.fillRect(o.x + 4, o.y + 4, o.w, o.h);
+
+            const grad = ctxRobot.createLinearGradient(o.x, o.y, o.x, o.y + o.h);
+            grad.addColorStop(0, o.color);
+            grad.addColorStop(1, ajustarBrillo(o.color, -30));
+            ctxRobot.fillStyle = grad;
+            ctxRobot.fillRect(o.x, o.y, o.w, o.h);
+
+            ctxRobot.fillStyle = 'rgba(255,255,255,0.2)';
+            ctxRobot.fillRect(o.x, o.y, o.w, 3);
+
+            ctxRobot.font = '20px Arial';
+            ctxRobot.textAlign = 'center';
+            const iconos = { libro: '📚', mueble: '🪑', caja: '📦', puerta: '🚪', planta: '🌱' };
+            if (iconos[o.tipo]) {
+                ctxRobot.fillText(iconos[o.tipo], o.x + o.w / 2, o.y + o.h / 2 + 7);
+            }
+        });
+    }
+
+    function dibujarSensores() {
+        if (!robot.mostrarSensores) return;
+
+        ctxRobot.beginPath();
+        ctxRobot.moveTo(robot.x, robot.y);
+        ctxRobot.arc(robot.x, robot.y, 120, robot.angulo - 0.5, robot.angulo + 0.5);
+        ctxRobot.closePath();
+        ctxRobot.fillStyle = 'rgba(72, 187, 120, 0.08)';
+        ctxRobot.fill();
+
+        const dist = detectarObstaculo();
+        const finX = robot.x + Math.cos(robot.angulo) * dist;
+        const finY = robot.y + Math.sin(robot.angulo) * dist;
+
+        ctxRobot.beginPath();
+        ctxRobot.moveTo(robot.x, robot.y);
+        ctxRobot.lineTo(finX, finY);
+        ctxRobot.strokeStyle = dist < 50 ? '#fc8181' : (dist < 90 ? '#f6c90e' : '#48bb78');
+        ctxRobot.lineWidth = 3;
+        ctxRobot.shadowBlur = 15;
+        ctxRobot.shadowColor = ctxRobot.strokeStyle;
+        ctxRobot.stroke();
+        ctxRobot.shadowBlur = 0;
+
+        if (dist < 120) {
+            ctxRobot.beginPath();
+            ctxRobot.arc(finX, finY, 6, 0, Math.PI * 2);
+            ctxRobot.fillStyle = dist < 50 ? '#fc8181' : '#f6c90e';
+            ctxRobot.fill();
+        }
+    }
+
+    function dibujarEstela() {
+        estela.forEach((p, i) => {
+            const alpha = (i / estela.length) * 0.4;
+            ctxRobot.beginPath();
+            ctxRobot.arc(p.x, p.y, p.r * (i / estela.length), 0, Math.PI * 2);
+            ctxRobot.fillStyle = `rgba(72, 187, 120, ${alpha})`;
+            ctxRobot.fill();
+        });
+    }
+
+    function dibujarParticulas() {
+        particulas = particulas.filter(p => p.vida > 0);
+        particulas.forEach(p => {
+            ctxRobot.beginPath();
+            ctxRobot.arc(p.x, p.y, p.r * (p.vida / p.vidaMax), 0, Math.PI * 2);
+            ctxRobot.fillStyle = `rgba(${p.color}, ${p.vida / p.vidaMax})`;
+            ctxRobot.fill();
+            p.x += p.vx;
+            p.y += p.vy;
+            p.vida--;
+        });
+    }
+
+    function dibujarOndas() {
+        ondas = ondas.filter(o => o.vida > 0);
+        ondas.forEach(o => {
+            ctxRobot.beginPath();
+            ctxRobot.arc(o.x, o.y, o.radio, 0, Math.PI * 2);
+            ctxRobot.strokeStyle = `rgba(252, 129, 129, ${o.vida / o.vidaMax})`;
+            ctxRobot.lineWidth = 3;
+            ctxRobot.stroke();
+            o.radio += 4;
+            o.vida--;
+        });
+    }
+
+    function dibujarCabezaRobot() {
+        const sacX = robot.sacudida > 0 ? (Math.random() - 0.5) * robot.sacudida : 0;
+        const sacY = robot.sacudida > 0 ? (Math.random() - 0.5) * robot.sacudida : 0;
+
+        ctxRobot.save();
+        ctxRobot.translate(robot.x + sacX, robot.y + sacY);
+
+        // Sombra en el suelo
+        ctxRobot.beginPath();
+        ctxRobot.ellipse(0, 42, 32, 10, 0, 0, Math.PI * 2);
+        ctxRobot.fillStyle = 'rgba(0,0,0,0.3)';
+        ctxRobot.fill();
+
+        // Antena
+        ctxRobot.beginPath();
+        ctxRobot.moveTo(0, -32);
+        ctxRobot.lineTo(0, -55);
+        ctxRobot.strokeStyle = '#2d3748';
+        ctxRobot.lineWidth = 3;
+        ctxRobot.lineCap = 'round';
+        ctxRobot.stroke();
+
+        const coloresLED = {
+            feliz: '#48bb78',
+            alerta: '#f6c90e',
+            enojado: '#fc8181',
+            dormido: '#a0aec0',
+            pensando: '#2b6cb0'
+        };
+        const ledColor = coloresLED[robot.emocion] || '#48bb78';
+        const pulso = 1 + Math.sin(robot.pulsoAntena) * 0.3;
+
+        ctxRobot.beginPath();
+        ctxRobot.arc(0, -58, 6 * pulso, 0, Math.PI * 2);
+        ctxRobot.fillStyle = ledColor;
+        ctxRobot.shadowBlur = 20 * pulso;
+        ctxRobot.shadowColor = ledColor;
+        ctxRobot.fill();
+        ctxRobot.shadowBlur = 0;
+
+        // Orejas / sensores laterales
+        [-38, 38].forEach(x => {
+            ctxRobot.beginPath();
+            ctxRobot.arc(x, -5, 8, 0, Math.PI * 2);
+            ctxRobot.fillStyle = '#1a365d';
+            ctxRobot.fill();
+            ctxRobot.strokeStyle = '#2b6cb0';
+            ctxRobot.lineWidth = 2;
+            ctxRobot.stroke();
+        });
+
+        // Cabeza principal
+        const gradCabeza = ctxRobot.createRadialGradient(-10, -15, 5, 0, 0, 45);
+        gradCabeza.addColorStop(0, '#4a90e2');
+        gradCabeza.addColorStop(0.6, '#2b6cb0');
+        gradCabeza.addColorStop(1, '#1a365d');
+
+        const ancho = 76, alto = 68, radio = 20;
+        ctxRobot.beginPath();
+        ctxRobot.moveTo(-ancho / 2 + radio, -alto / 2);
+        ctxRobot.lineTo(ancho / 2 - radio, -alto / 2);
+        ctxRobot.quadraticCurveTo(ancho / 2, -alto / 2, ancho / 2, -alto / 2 + radio);
+        ctxRobot.lineTo(ancho / 2, alto / 2 - radio);
+        ctxRobot.quadraticCurveTo(ancho / 2, alto / 2, ancho / 2 - radio, alto / 2);
+        ctxRobot.lineTo(-ancho / 2 + radio, alto / 2);
+        ctxRobot.quadraticCurveTo(-ancho / 2, alto / 2, -ancho / 2, alto / 2 - radio);
+        ctxRobot.lineTo(-ancho / 2, -alto / 2 + radio);
+        ctxRobot.quadraticCurveTo(-ancho / 2, -alto / 2, -ancho / 2 + radio, -alto / 2);
+        ctxRobot.closePath();
+        ctxRobot.fillStyle = gradCabeza;
+        ctxRobot.fill();
+
+        ctxRobot.strokeStyle = 'rgba(255,255,255,0.3)';
+        ctxRobot.lineWidth = 2;
+        ctxRobot.stroke();
+
+        // Pantalla de la cara
+        ctxRobot.beginPath();
+        if (ctxRobot.roundRect) {
+            ctxRobot.roundRect(-28, -18, 56, 32, 12);
+        } else {
+            ctxRobot.rect(-28, -18, 56, 32);
+        }
+        ctxRobot.fillStyle = '#0a1628';
+        ctxRobot.fill();
+        ctxRobot.strokeStyle = '#e2a609';
+        ctxRobot.lineWidth = 1.5;
+        ctxRobot.stroke();
+
+        dibujarOjos();
+        dibujarBoca();
+
+        // Reflejo superior
+        ctxRobot.beginPath();
+        ctxRobot.ellipse(-15, -25, 20, 6, -0.3, 0, Math.PI * 2);
+        ctxRobot.fillStyle = 'rgba(255,255,255,0.15)';
+        ctxRobot.fill();
+
+        ctxRobot.restore();
+    }
+
+    function dibujarOjos() {
+        const parpadeando = robot.parpadeo > 0;
+        const alturaOjo = parpadeando ? 1 : 11;
+
+        const coloresOjos = {
+            feliz: ['#48bb78', '#38a169'],
+            alerta: ['#f6c90e', '#d97706'],
+            enojado: ['#fc8181', '#e53e3e'],
+            dormido: ['#a0aec0', '#718096'],
+            pensando: ['#4a90e2', '#2b6cb0']
+        };
+        const [colorIzq, colorDer] = coloresOjos[robot.emocion] || coloresOjos.feliz;
+
+        // Ojo izquierdo
+        ctxRobot.beginPath();
+        ctxRobot.ellipse(-14 + robot.miradaOffsetX, 0 + robot.miradaOffsetY, 7, alturaOjo, 0, 0, Math.PI * 2);
+        ctxRobot.fillStyle = colorIzq;
+        ctxRobot.shadowBlur = 12;
+        ctxRobot.shadowColor = colorIzq;
+        ctxRobot.fill();
+        ctxRobot.shadowBlur = 0;
+
+        if (!parpadeando) {
+            ctxRobot.beginPath();
+            ctxRobot.arc(-14 + robot.miradaOffsetX + 2, robot.miradaOffsetY, 3, 0, Math.PI * 2);
+            ctxRobot.fillStyle = '#0a1628';
+            ctxRobot.fill();
+        }
+
+        // Ojo derecho
+        ctxRobot.beginPath();
+        ctxRobot.ellipse(14 + robot.miradaOffsetX, 0 + robot.miradaOffsetY, 7, alturaOjo, 0, 0, Math.PI * 2);
+        ctxRobot.fillStyle = colorDer;
+        ctxRobot.shadowBlur = 12;
+        ctxRobot.shadowColor = colorDer;
+        ctxRobot.fill();
+        ctxRobot.shadowBlur = 0;
+
+        if (!parpadeando) {
+            ctxRobot.beginPath();
+            ctxRobot.arc(14 + robot.miradaOffsetX + 2, robot.miradaOffsetY, 3, 0, Math.PI * 2);
+            ctxRobot.fillStyle = '#0a1628';
+            ctxRobot.fill();
+        }
+    }
+
+    function dibujarBoca() {
+        ctxRobot.strokeStyle = '#e2a609';
+        ctxRobot.lineWidth = 2.5;
+        ctxRobot.lineCap = 'round';
+        ctxRobot.beginPath();
+
+        switch (robot.emocion) {
+            case 'feliz':
+                ctxRobot.arc(0, 8, 8, 0, Math.PI);
+                break;
+            case 'alerta':
+                ctxRobot.arc(0, 6, 5, 0, Math.PI * 2);
+                break;
+            case 'enojado':
+                ctxRobot.moveTo(-7, 11);
+                ctxRobot.lineTo(0, 8);
+                ctxRobot.lineTo(7, 11);
+                break;
+            case 'dormido':
+                ctxRobot.moveTo(-6, 10);
+                ctxRobot.lineTo(6, 10);
+                break;
+            case 'pensando':
+                ctxRobot.arc(3, 8, 4, 0, Math.PI);
+                break;
+        }
+        ctxRobot.stroke();
+    }
+
+    let fondoParticulas = [];
+    for (let i = 0; i < 40; i++) {
+        fondoParticulas.push({
+            x: Math.random() * 900,
+            y: Math.random() * 550,
+            r: Math.random() * 1.5 + 0.5,
+            alpha: Math.random() * 0.5 + 0.2,
+            vel: Math.random() * 0.3 + 0.1
+        });
+    }
+
+    function dibujarFondo() {
+        fondoParticulas.forEach(p => {
+            p.y -= p.vel;
+            if (p.y < 0) p.y = 550;
+            ctxRobot.beginPath();
+            ctxRobot.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+            ctxRobot.fillStyle = `rgba(226, 166, 9, ${p.alpha})`;
+            ctxRobot.fill();
+        });
+    }
+
+    function dibujarRobot() {
+        if (!ctxRobot) return;
+
+        ctxRobot.clearRect(0, 0, canvasRobot.width, canvasRobot.height);
+
+        dibujarFondo();
+
+        ctxRobot.strokeStyle = 'rgba(43, 108, 176, 0.15)';
+        ctxRobot.lineWidth = 1;
+        for (let i = 0; i < canvasRobot.width; i += 50) {
+            ctxRobot.beginPath(); ctxRobot.moveTo(i, 0); ctxRobot.lineTo(i, canvasRobot.height); ctxRobot.stroke();
+        }
+        for (let i = 0; i < canvasRobot.height; i += 50) {
+            ctxRobot.beginPath(); ctxRobot.moveTo(0, i); ctxRobot.lineTo(canvasRobot.width, i); ctxRobot.stroke();
+        }
+
+        dibujarEstela();
+        dibujarSensores();
+        dibujarObstaculos();
+        dibujarOndas();
+        dibujarParticulas();
+        dibujarCabezaRobot();
+    }
+
+    let ultimoTiempo = performance.now();
+
+    function buclePrincipal(tiempoActual) {
+        if (!canvasRobot) return;
+        const delta = Math.min((tiempoActual - ultimoTiempo) / 1000, 0.1);
+        ultimoTiempo = tiempoActual;
+
+        robot.x = lerp(robot.x, robot.targetX, 0.12);
+        robot.y = lerp(robot.y, robot.targetY, 0.12);
+        robot.angulo = lerp(robot.angulo, robot.targetAngulo, 0.15);
+
+        if (robot.modoAutonomo && robot.bateria > 0 && canvasRobot) {
+            const dist = detectarObstaculo();
+
+            if (dist < 60) {
+                robot.targetAngulo += 0.08;
+                robot.estado = 'EVADIENDO';
+                robot.emocion = 'alerta';
+            } else {
+                const paso = 1.5;
+                robot.targetX += Math.cos(robot.angulo) * paso;
+                robot.targetY += Math.sin(robot.angulo) * paso;
+                robot.estado = 'AUTÓNOMO';
+                robot.emocion = 'feliz';
+                robot.velocidad = 2;
+                robot.bateria -= 0.02;
+
+                if (Math.random() < 0.4) {
+                    estela.push({ x: robot.x, y: robot.y, r: 8 });
+                }
+            }
+
+            if (robot.targetX < 50 || robot.targetX > canvasRobot.width - 50) {
+                robot.targetAngulo += 0.5;
+            }
+            if (robot.targetY < 50 || robot.targetY > canvasRobot.height - 50) {
+                robot.targetAngulo += 0.5;
+            }
+        } else if (!robot.modoAutonomo) {
+            robot.velocidad = 0;
+            if (robot.estado !== 'DETENIDO' && robot.estado !== 'GIRANDO IZQ' && robot.estado !== 'GIRANDO DER') {
+                if (robot.bateria <= 0) {
+                    robot.emocion = 'dormido';
+                    robot.estado = 'SIN BATERÍA';
+                } else {
+                    robot.emocion = 'feliz';
+                    robot.estado = 'IDLE';
+                }
+            }
+        }
+
+        robot.targetX = Math.max(50, Math.min(canvasRobot.width - 50, robot.targetX));
+        robot.targetY = Math.max(50, Math.min(canvasRobot.height - 50, robot.targetY));
+
+        robot.proximoParpadeo -= delta;
+        if (robot.proximoParpadeo <= 0) {
+            robot.parpadeo = 0.15;
+            robot.proximoParpadeo = 2 + Math.random() * 4;
+        }
+        if (robot.parpadeo > 0) robot.parpadeo -= delta;
+
+        robot.pulsoAntena += delta * (robot.modoAutonomo ? 8 : 3);
+
+        let obstMasCercano = null;
+        let distMin = 9999;
+        obstaculos.forEach(o => {
+            const cx = o.x + o.w / 2;
+            const cy = o.y + o.h / 2;
+            const d = distanciaA(robot.x, robot.y, cx, cy);
+            if (d < distMin) { distMin = d; obstMasCercano = { x: cx, y: cy }; }
+        });
+
+        if (obstMasCercano) {
+            const dx = obstMasCercano.x - robot.x;
+            const dy = obstMasCercano.y - robot.y;
+            const dist = Math.sqrt(dx * dx + dy * dy) || 1;
+            robot.miradaOffsetX = lerp(robot.miradaOffsetX, (dx / dist) * 3, 0.08);
+            robot.miradaOffsetY = lerp(robot.miradaOffsetY, (dy / dist) * 2, 0.08);
+        }
+
+        if (robot.sacudida > 0) robot.sacudida *= 0.85;
+        if (robot.sacudida < 0.5) robot.sacudida = 0;
+
+        estela = estela.filter((p, i) => i < 30);
+
+        actualizarTelemetria();
+        dibujarRobot();
+
+        requestAnimationFrame(buclePrincipal);
+    }
+
+    function moverRobot(dir) {
+        if (!sesionActiva) {
+            mostrarToast('Solo administradores pueden controlar el robot.', 'warning');
+            return;
+        }
+        if (robot.bateria <= 0) {
+            mostrarToast('🔋 Batería agotada. Reinicia el robot.', 'warning');
+            return;
+        }
+
+        const paso = 40;
+        switch(dir) {
+            case 'arriba':
+                robot.targetX += Math.cos(robot.angulo) * paso;
+                robot.targetY += Math.sin(robot.angulo) * paso;
+                robot.estado = 'AVANZANDO';
+                robot.emocion = 'feliz';
+                break;
+            case 'abajo':
+                robot.targetX -= Math.cos(robot.angulo) * paso;
+                robot.targetY -= Math.sin(robot.angulo) * paso;
+                robot.estado = 'RETROCEDIENDO';
+                robot.emocion = 'pensando';
+                break;
+            case 'izquierda':
+                robot.targetAngulo -= 0.4;
+                robot.estado = 'GIRANDO IZQ';
+                robot.emocion = 'pensando';
+                break;
+            case 'derecha':
+                robot.targetAngulo += 0.4;
+                robot.estado = 'GIRANDO DER';
+                robot.emocion = 'pensando';
+                break;
+            case 'detener':
+                robot.estado = 'DETENIDO';
+                robot.emocion = 'alerta';
+                break;
+        }
+
+        robot.bateria -= 0.5;
+        if (robot.bateria < 0) robot.bateria = 0;
+
+        if (detectarObstaculo() < 40) {
+            robot.sacudida = 15;
+            robot.emocion = 'enojado';
+            ondas.push({ x: robot.x, y: robot.y, radio: 10, vida: 20, vidaMax: 20 });
+
+            for (let i = 0; i < 12; i++) {
+                const ang = Math.random() * Math.PI * 2;
+                particulas.push({
+                    x: robot.x, y: robot.y,
+                    vx: Math.cos(ang) * 3,
+                    vy: Math.sin(ang) * 3,
+                    r: 4, vida: 30, vidaMax: 30,
+                    color: '252, 129, 129'
+                });
+            }
+            mostrarToast('💥 ¡Colisión detectada!', 'warning');
+            logRobot('⚠️ Obstáculo a ' + Math.round(detectarObstaculo()) + ' cm');
+        } else {
+            for (let i = 0; i < 5; i++) {
+                particulas.push({
+                    x: robot.x + (Math.random() - 0.5) * 20,
+                    y: robot.y + (Math.random() - 0.5) * 20,
+                    vx: (Math.random() - 0.5) * 1.5,
+                    vy: (Math.random() - 0.5) * 1.5,
+                    r: 3, vida: 20, vidaMax: 20,
+                    color: '72, 187, 120'
+                });
+            }
+        }
+    }
+
+    function toggleAutonomo() {
+        if (!sesionActiva) {
+            mostrarToast('Solo administradores pueden activar el modo autónomo.', 'warning');
+            return;
+        }
+        robot.modoAutonomo = !robot.modoAutonomo;
+        const btn = document.getElementById('btnAutonomo');
+
+        if (robot.modoAutonomo) {
+            btn.innerHTML = '<i class="fas fa-stop"></i> Detener Modo Autónomo';
+            btn.classList.remove('btn-success');
+            btn.classList.add('btn-danger');
+            robot.estado = 'AUTÓNOMO';
+            robot.emocion = 'feliz';
+            logRobot('🧠 Modo autónomo ACTIVADO');
+            mostrarToast('Modo autónomo activado', 'success');
+        } else {
+            btn.innerHTML = '<i class="fas fa-brain"></i> Activar Modo Autónomo';
+            btn.classList.remove('btn-danger');
+            btn.classList.add('btn-success');
+            robot.estado = 'IDLE';
+            robot.emocion = 'feliz';
+            logRobot('🛑 Modo autónomo DESACTIVADO');
+        }
+    }
+
+    function toggleSensores() {
+        robot.mostrarSensores = !robot.mostrarSensores;
+        dibujarRobot();
+    }
+
+    function reiniciarRobot() {
+        if (!sesionActiva) {
+            mostrarToast('Solo administradores pueden reiniciar el robot.', 'warning');
+            return;
+        }
+        robot.modoAutonomo = false;
+        const btn = document.getElementById('btnAutonomo');
+        if (btn) {
+            btn.innerHTML = '<i class="fas fa-brain"></i> Activar Modo Autónomo';
+            btn.classList.remove('btn-danger');
+            btn.classList.add('btn-success');
+        }
+        iniciarRobot();
+        mostrarToast('Robot reiniciado.', 'success');
+    }
+
+    function logRobot(msg) {
+        const log = document.getElementById('logRobot');
+        if (!log) return;
+        const hora = new Date().toLocaleTimeString();
+        const linea = document.createElement('div');
+        linea.textContent = `[${hora}] ${msg}`;
+        log.appendChild(linea);
+        log.scrollTop = log.scrollHeight;
+        while (log.children.length > 50) log.removeChild(log.firstChild);
+    }
+
+    function actualizarTelemetria() {
+        if (!canvasRobot) return;
+        const dist = detectarObstaculo();
+        const elDist = document.getElementById('distanciaSensor');
+        const elBat = document.getElementById('bateriaRobot');
+        const elVel = document.getElementById('velocidadRobot');
+        const elEst = document.getElementById('estadoRobot');
+
+        if (elDist) elDist.textContent = Math.round(dist);
+        if (elBat) elBat.textContent = Math.round(robot.bateria);
+        if (elVel) elVel.textContent = robot.estado === 'IDLE' ? 0 : Math.round(robot.velocidad);
+        if (elEst) elEst.textContent = robot.estado;
+
+        if (robot.bateria < 20 && robot.bateria > 19.7) {
+            mostrarToast('🔋 Batería baja', 'warning');
+            logRobot('⚠️ Batería por debajo del 20%');
+        }
+    }
+
+    // ============================================
+    // 11. INICIALIZACIÓN
+    // ============================================
+    window.onload = function() {
+        const sesionRestaurada = verificarSesion();
+        const datosCargados = cargarDatos();
+
+        if (!datosCargados || docentes.length === 0) {
+            if (sesionActiva) {
+                cargarDocentesEjemplo();
+            } else {
+                actualizarTodo();
+            }
+        } else {
+            actualizarTodo();
+        }
+
+        if (!sesionActiva) {
+            mostrarElementosAdmin(false);
+            if (document.getElementById('loginOverlay').style.display === 'none') {
+                mostrarBannerLectura();
+            }
+        }
+
+        // Iniciar robot
+        setTimeout(() => {
+            iniciarRobot();
+            if (canvasRobot) requestAnimationFrame(buclePrincipal);
+        }, 300);
+
+        setInterval(() => {
+            if (docentes.length > 0 || noticias.length > 0 || eventos.length > 0) {
+                guardarDatos();
+            }
+        }, 30000);
+    };
+</script>
+
+</body>
+</html>
